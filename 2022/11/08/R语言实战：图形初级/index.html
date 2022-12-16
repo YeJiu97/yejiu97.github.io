@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="R语言实战 第二版 第三章 笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R语言实战：图形初级">
+<meta property="og:url" content="http://example.com/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/index.html">
+<meta property="og:site_name" content="夜久">
+<meta property="og:description" content="R语言实战 第二版 第三章 笔记">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108163740116.png">
+<meta property="og:image" content="http://example.com/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108163756605.png">
+<meta property="og:image" content="http://example.com/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108163809587.png">
+<meta property="og:image" content="http://example.com/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108163820774.png">
+<meta property="og:image" content="http://example.com/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108163833479.png">
+<meta property="og:image" content="http://example.com/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108163857237.png">
+<meta property="og:image" content="http://example.com/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108163922943.png">
+<meta property="og:image" content="http://example.com/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108163936441.png">
+<meta property="og:image" content="http://example.com/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108163950706.png">
+<meta property="og:image" content="http://example.com/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108164003989.png">
+<meta property="og:image" content="http://example.com/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108164014000.png">
+<meta property="og:image" content="http://example.com/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108164027917.png">
+<meta property="og:image" content="http://example.com/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108164038820.png">
+<meta property="og:image" content="http://example.com/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108164050752.png">
+<meta property="og:image" content="http://example.com/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108164101723.png">
+<meta property="og:image" content="http://example.com/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108164113995.png">
+<meta property="og:image" content="http://example.com/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108164127735.png">
+<meta property="og:image" content="http://example.com/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108164138815.png">
+<meta property="og:image" content="http://example.com/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108164150828.png">
+<meta property="og:image" content="http://example.com/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108164204305.png">
+<meta property="og:image" content="http://example.com/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108164221690.png">
+<meta property="article:published_time" content="2022-11-08T06:06:49.000Z">
+<meta property="article:modified_time" content="2022-11-08T06:12:29.183Z">
+<meta property="article:author" content="Ye Jiu">
+<meta property="article:tag" content="R语言">
+<meta property="article:tag" content="R语言实战">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108163740116.png">
+
+
+<link rel="canonical" href="http://example.com/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/","path":"2022/11/08/R语言实战：图形初级/","title":"R语言实战：图形初级"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>R语言实战：图形初级 | 夜久</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">夜久</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-about"><a href="/about" rel="section">About</a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section">Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories" rel="section">Categories</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E4%BD%BF%E7%94%A8%E5%9B%BE%E5%BD%A2"><span class="nav-number">1.</span> <span class="nav-text">3.1 使用图形</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-%E4%BE%8B%E5%AD%90"><span class="nav-number">2.</span> <span class="nav-text">3.2 例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-%E5%9B%BE%E5%BD%A2%E5%8F%82%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">3.3 图形参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-%E6%B7%BB%E5%8A%A0%E6%96%87%E6%9C%AC%EF%BC%8C%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9D%90%E6%A0%87%E8%BD%B4%E5%92%8C%E5%9B%BE%E4%BE%8B"><span class="nav-number">4.</span> <span class="nav-text">3.4 添加文本，自定义坐标轴和图例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-%E5%9B%BE%E5%BD%A2%E7%9A%84%E7%BB%84%E5%90%88"><span class="nav-number">5.</span> <span class="nav-text">3.5 图形的组合</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Ye Jiu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Ye Jiu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="夜久">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="R语言实战：图形初级 | 夜久">
+      <meta itemprop="description" content="R语言实战 第二版 第三章 笔记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          R语言实战：图形初级
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-11-08 16:36:49 / Modified: 16:42:29" itemprop="dateCreated datePublished" datetime="2022-11-08T16:36:49+10:30">2022-11-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/R%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">R语言</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">R语言实战 第二版 第三章 笔记</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="3-1-使用图形"><a href="#3-1-使用图形" class="headerlink" title="3.1 使用图形"></a>3.1 使用图形</h2><p>代码如下所示;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">attach(mtcars)</span><br><span class="line">plot(wt, mpg)</span><br><span class="line">abline(lm(mpg~wt))</span><br><span class="line">title(&quot;Regression of MPG on Weight&quot;)</span><br><span class="line">detach(mtcars)</span><br></pre></td></tr></table></figure>
+
+<p>运行的结果如下所示：</p>
+<p><img src="/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108163740116.png" alt="image-20221108163740116"></p>
+<p>这里使用了数据集mtcars，这个数据集是R原因自带的一个数据集，所以不需要额外的下载。</p>
+<p>代码的首句绑定了数据狂mtcars，第二条语句打开了一个图形窗口并且生成了一副散点图，横轴表示车身重量，纵轴表示每加仑汽油行驶的英里数。第三句向图形添加了一条最优拟合曲线。第四句则是添加了标题。最后一句为数据框解除了绑定。</p>
+<p>我们可以通过代码或图形用户界面来保存图形，如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt; pdf(&quot;mygraph.pdf&quot;)</span><br><span class="line">&gt;   attach(mtcars)</span><br><span class="line">&gt;   plot(wt, mpg)</span><br><span class="line">&gt;   abline(lm(mpg~wt))</span><br><span class="line">&gt;   title(&quot;Regression of MPG on Weight&quot;)</span><br><span class="line">&gt;   detach(mtcars)</span><br><span class="line">&gt; dev.off()</span><br><span class="line">RStudioGD </span><br><span class="line">        2</span><br></pre></td></tr></table></figure>
+
+<p>运行的结果为：</p>
+<p>[![Untitled](R语言实战：图形初级&#x2F;Untitled 1.png)](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/RinAction/blob/main/03_%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/chapter_03%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E9%98%B6">https://github.com/YeJiu97/RinAction/blob/main/03_图形初级/chapter_03：图形初阶</a> fc0a7e77cd954795be03a86d2958e37c&#x2F;Untitled 1.png)</p>
+<p>PDF的内容为：</p>
+<p><img src="/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108163756605.png" alt="image-20221108163756605"></p>
+<p>除了pdf()函数之外，还可以使用：</p>
+<ol>
+<li>win.metafile()</li>
+<li>png()</li>
+<li>bmp()</li>
+<li>tiff()</li>
+<li>xfig()</li>
+<li>postscript()</li>
+</ol>
+<p>来将图形保存为其他的格式。</p>
+<p>在R语言中，如果使用plot()，hist()或者boxplot()来创建一副新的图形，通常会覆盖掉先前的图形，如果要创建多个图形，则可以采用这样的两种方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dev.new()</span><br><span class="line">statements to create graph 1</span><br><span class="line">dev.new()</span><br><span class="line">statements to create a graph 2</span><br><span class="line">etc.</span><br></pre></td></tr></table></figure>
+
+<p>第一种方法如上所示，你可以在创建一幅新图形之前打开一个新的图形窗口。</p>
+<p>第二种方法，你可以通过图形用户界面来查看多个图形。在Mac上，你可以使用Quartz菜单中的“后退”（Back）和“前进”（Forward）来逐个浏览图形。在Windows上，这个过程分为两步。在打开第一个图形窗口以后，勾选“历史”（History）→“记录”（Recording）。然后使用菜单中的“上一个”（Previous）和“下一个”（Next）来逐个查看已经绘制的图形。</p>
+<p>最后一种方法，你可以使用函数dev.new()、dev.next()、dev.prev()、dev.set()和dev.off()同时打开多个图形窗口，并选择将哪个输出发送到哪个窗口中。</p>
+<h2 id="3-2-例子"><a href="#3-2-例子" class="headerlink" title="3.2 例子"></a>3.2 <strong>例子</strong></h2><p>我们可以使用这样的一个例子：</p>
+<p><img src="/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108163809587.png" alt="image-20221108163809587"></p>
+<p>我们首先创建上述表中的数据：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dose &lt;- c(20, 30, 40, 45, 60)</span><br><span class="line">dose_a &lt;- c(16, 20, 27, 40, 60)</span><br><span class="line">dose_b &lt;- c(15, 18, 25, 31, 40)</span><br></pre></td></tr></table></figure>
+
+<p>接着我们使用如下所示的代码来创建一副用来描述药物A的剂量和响应关系的图形：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plot(dose, dose_a, type=&#x27;b&#x27;)</span><br></pre></td></tr></table></figure>
+
+<p>运行的结果为：</p>
+<p><img src="/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108163820774.png" alt="image-20221108163820774"></p>
+<p>plot()是R中为对象作图的一个泛型函数，语法如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plot(x, y, type=&quot;b&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>x为x轴，y为y轴，而type&#x3D;”b”则是表示同时绘制点和线。</p>
+<h2 id="3-3-图形参数"><a href="#3-3-图形参数" class="headerlink" title="3.3 图形参数"></a>3.3 图形参数</h2><p>我们可以修改称为图形参数的选项来自定义一副图形的多个特征（字体，颜色，坐标轴和标签）。</p>
+<p>一种方法是使用函数par()来指定这些选项，以这种方式设定的参数值除非被再次修改，否则将会在会话结束之前一直有效。</p>
+<p>格式为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">par(optionname=value, optionname=name, ...)</span><br></pre></td></tr></table></figure>
+
+<p>不加参数执行par()的话将会生成一个含有当前图形参数设置的列表。</p>
+<p>继续上述的例子，如果我们想要使用的是实心三角形而不是空心圆圈作为点的符号，并且想要使用虚线而不是实线，我们可以使用如下所示的代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">opar &lt;- par(no.readonly = TRUE)</span><br><span class="line">par(lty=2, pch=17)</span><br><span class="line">plot(dose, dose_a, type = &quot;b&quot;)</span><br><span class="line">par(opar)</span><br></pre></td></tr></table></figure>
+
+<p>运行的结果为：</p>
+<p><img src="/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108163833479.png" alt="image-20221108163833479"></p>
+<p>首个语句复制了一份当前的图形参数设置；第二句则是将默认的线条类型修改为虚线（lty &#x3D; 2），并且将默认的点符号改为了实心三角形（pch &#x3D; 17）；最后，我们绘制了图形并且还原了原始设置。</p>
+<p>指定图形参数的第二种方法是为高级绘图函数直接提供optionname&#x3D;value的键值对，代码如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plot(dose, dose_a, type = &quot;b&quot;, lty = 2, pch = 17)</span><br></pre></td></tr></table></figure>
+
+<p>运行的结果如下所示：</p>
+<p><img src="/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108163857237.png" alt="image-20221108163857237"></p>
+<p>图形参数可以被用来指定绘图时使用的符号和线条类型：</p>
+<p><img src="/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108163922943.png" alt="image-20221108163922943"></p>
+<p>选项pch&#x3D;用于指定绘制点时使用的符号：</p>
+<p><img src="/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108163936441.png" alt="image-20221108163936441"></p>
+<p>综合上述的选项，我们可以选择如下所示的代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plot(dose, dose_a, type = &quot;b&quot;, lty = 3, lwd = 3, pch = 15, cex = 2)</span><br></pre></td></tr></table></figure>
+
+<p>结果如下所示：</p>
+<p><img src="/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108163950706.png" alt="image-20221108163950706"></p>
+<p>颜色相关的参数如下所示：</p>
+<p><img src="/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108164003989.png" alt="image-20221108164003989"></p>
+<p>我们可以先安装一个package：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">install.packages(&quot;RColorBrewer&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>然后我们导入这个package：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">library(RColorBrewer)</span><br></pre></td></tr></table></figure>
+
+<p>最后我们输入如下所示的代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">n &lt;- 7</span><br><span class="line">mycolors &lt;- brewer.pal(n, &quot;Set1&quot;)</span><br><span class="line">barplot(rep(1, n), col = mycolors)</span><br></pre></td></tr></table></figure>
+
+<p>得到结果：</p>
+<p><img src="/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108164014000.png" alt="image-20221108164014000"></p>
+<p>从Set1调色板中抽取了7种用十六进制表示的颜色并且返回一个向量。</p>
+<p>文本属性则参考下表：</p>
+<p><img src="/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108164027917.png" alt="image-20221108164027917"></p>
+<p>例子如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">par(font.lab = 3, cex.lab = 1.5, font.main = 4, cex.main = 2)</span><br></pre></td></tr></table></figure>
+
+<p>之后创建的所有图形都将拥有斜体，1.5倍于默认文本大小的坐标轴标签，以及粗斜体，2倍于默认文本大小的标题。</p>
+<p>如果要控制图形尺寸和边界大小：</p>
+<p><img src="/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108164038820.png" alt="image-20221108164038820"></p>
+<p>代码为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">par(pin=c(4,3), mai=c(1,.5, 1, .2))</span><br></pre></td></tr></table></figure>
+
+<p>可生成一幅4英寸宽、3英寸高、上下边界为1英寸、左边界为0.5英寸、右边界为0.2英寸的图形。</p>
+<p>最后让我们来写一个代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">dose &lt;- c(20, 30, 40, 45, 60)</span><br><span class="line">drug_a &lt;- c(16, 20, 27, 40, 60)</span><br><span class="line">drug_b &lt;- c(15, 18, 25, 31, 40)</span><br><span class="line"></span><br><span class="line">opar &lt;- par(no.readonly = TRUE)  # 把环境参数中的那些不是readonly 的部分，赋值给opar</span><br><span class="line">par(pin=c(2, 3))</span><br><span class="line">par(lwd=2, cex=1.5)</span><br><span class="line">par(cex.axis=0.75, font.axis=3)</span><br><span class="line"></span><br><span class="line">plot(dose, drug_a, type = &quot;b&quot;, pch = 19, lty = 2, col = &quot;red&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>获得：</p>
+<p><img src="/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108164050752.png" alt="image-20221108164050752"></p>
+<p>接着输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plot(dose, drug_b, type = &quot;b&quot;, pch = 23, lty = 6, col = &quot;blue&quot;, bg = &quot;green&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>得到结果为：</p>
+<p><img src="/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108164101723.png" alt="image-20221108164101723"></p>
+<p>最后：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">par(opar)</span><br></pre></td></tr></table></figure>
+
+<p>在上述代码中：</p>
+<ol>
+<li>首先，以向量的形式输入了数据，然后保存当前的图形参数设置</li>
+<li>接着，修改了默认的图形参数，得到的图形为2英寸宽，3英寸高</li>
+<li>接着，将线条的宽度设置为默认宽度的两倍，符号将默认大小的1.5倍</li>
+<li>接着，坐标轴刻度呗设置为斜度，缩小大小为默认大小的75%</li>
+<li>之后，我们使用了红色实心圆圈和虚线创建了第一幅图；并且使用绿色填充的绿色菱形加蓝色边框和蓝色虚线创建了第二幅图形</li>
+<li>最后，我们还原了初始的图形参数设置</li>
+</ol>
+<p>需要注意的是：par()函数设定的参数对两幅图都有效，而plot()函数中指定的参数仅对那个特定图形有效。</p>
+<h2 id="3-4-添加文本，自定义坐标轴和图例"><a href="#3-4-添加文本，自定义坐标轴和图例" class="headerlink" title="3.4 添加文本，自定义坐标轴和图例"></a>3.4 添加文本，自定义坐标轴和图例</h2><p>除了图形参数，许多高级绘图函数（如：plot, hist, boxplot）也允许自行设定坐标轴和文本标注选项。</p>
+<p>我们可以以以下的代码为例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">plot(dose, drug_a, type=&quot;b&quot;,</span><br><span class="line">     col=&quot;red&quot;, lty=2, pch=2, lwd=2,</span><br><span class="line">     main=&quot;Clinical Trials for Drug A&quot;,</span><br><span class="line">     sub=&quot;This is hypothetical data&quot;,</span><br><span class="line">     xlab=&quot;Dosage&quot;, ylab=&quot;Drug Response&quot;,</span><br><span class="line">     xlim=c(0, 60), ylim=c(0, 70))</span><br></pre></td></tr></table></figure>
+
+<p>获得的图片如下所示：</p>
+<p><img src="/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108164113995.png" alt="image-20221108164113995"></p>
+<p>在上述代码中：</p>
+<ol>
+<li>main 添加了标题</li>
+<li>sub 则添加了副标题</li>
+<li>xlab和ylab 则给出了坐标轴标签</li>
+<li>xlim和ylim则给出了坐标轴的范围</li>
+</ol>
+<p>不是所有的函数都支持上述的这些选项。</p>
+<p>可以使用title()函数为图形添加标题和坐标轴标签。调用的格式为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">title(main=&quot;main title&quot;, sub=&quot;subtitle&quot;,</span><br><span class="line">			xlab=&quot;x-axis label&quot;, ylab=&quot;y-axis label&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>函数title()中亦可指定其他图形参数（如文本大小、字体、旋转角度和颜色）。</p>
+<p>可以使用函数axis()来创建自定义的坐标轴，而非使用R中的默认坐标轴。其格式为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">axis(side, at=, labels=, pos=, lty=, col=, las=, tck=, ...)</span><br></pre></td></tr></table></figure>
+
+<p>参数如下所示：</p>
+<p><img src="/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108164127735.png" alt="image-20221108164127735"></p>
+<p>当图形中包含的数据不止一组时，图例可以帮助你辨别出每个条形、扇形区域或折线各代表哪一类数据。我们可以使用函数legend()来添加图例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">legend(location, title, legend, ...)</span><br></pre></td></tr></table></figure>
+
+<p>见下表：</p>
+<p><img src="/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108164138815.png" alt="image-20221108164138815"></p>
+<p>代码例子如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">opar &lt;- par(no.readonly = TRUE)</span><br><span class="line">par(lwd = 2, cex = 1.5, font.lab = 2)</span><br><span class="line"></span><br><span class="line">plot(dose, drug_a, type = &quot;b&quot;,</span><br><span class="line">     pch = 15, lty = 1, col = &quot;red&quot;, ylim = c(0, 60),</span><br><span class="line">     main = &quot;Drug A vs. Drug B&quot;,</span><br><span class="line">     xlab = &quot;Drug Dosage&quot;, ylab = &quot;Drug Response&quot;)</span><br><span class="line"></span><br><span class="line">lines(dose, drug_b, type=&quot;b&quot;,</span><br><span class="line">      pch=17, lty=2, col=&quot;blue&quot;)</span><br><span class="line"></span><br><span class="line">abline(h=c(30), lwd=1.5, lty=2, col=&quot;gray&quot;)</span><br><span class="line">library(Hmisc)</span><br><span class="line">minor.tick(nx=3, ny=3, tick.ratio=0.5)</span><br><span class="line"></span><br><span class="line">legend(&quot;topleft&quot;, inset=.05, title=&quot;Drug Type&quot;, c(&quot;A&quot;,&quot;B&quot;), lty=c(1, 2), pch=c(15, 17), col=c(&quot;red&quot;, &quot;blue&quot;))</span><br></pre></td></tr></table></figure>
+
+<p>得到的结果为：</p>
+<p><img src="/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108164150828.png" alt="image-20221108164150828"></p>
+<p>最后，我们对其进行还原：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">par(opar)</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-5-图形的组合"><a href="#3-5-图形的组合" class="headerlink" title="3.5 图形的组合"></a>3.5 图形的组合</h2><p>在R中使用函数par()或者layout()可以容易地组合多幅图形为一副总括图形。</p>
+<p>在par()函数中使用图形参数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mfrow = c(nrows, ncols)</span><br></pre></td></tr></table></figure>
+
+<p>来创建按行填充的，行数为nrows，列数为ncols的图形矩阵。</p>
+<p>代码如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">attach(mtcars)</span><br><span class="line">opar &lt;- par(no.readonly = TRUE)</span><br><span class="line">par(mfrow = c(2, 2))</span><br><span class="line">plot(wt, mpg, main=&quot;Scatterplot of wt vs. mpg&quot;)</span><br><span class="line">plot(wt, disp, main = &quot;Scatterplot of wt vs. disp&quot;)</span><br><span class="line">hist(wt, main=&quot;Histogram of wt&quot;)</span><br><span class="line">boxplot(wt, main=&quot;Boxplot of wt&quot;)</span><br><span class="line">par(opar)</span><br><span class="line">detach(mtcars)</span><br></pre></td></tr></table></figure>
+
+<p>运行的结果为：</p>
+<p><img src="/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108164204305.png" alt="image-20221108164204305"></p>
+<p>接着我们再来尝试一下这一段代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">attach(mtcars)</span><br><span class="line">opar &lt;- par(no.readonly=TRUE)</span><br><span class="line">par(mfrow=c(3,1))</span><br><span class="line">hist(wt)</span><br><span class="line">hist(mpg)</span><br><span class="line">hist(disp)</span><br><span class="line">par(opar)</span><br><span class="line">detach(mtcars)</span><br></pre></td></tr></table></figure>
+
+<p>运行的结果为：</p>
+<p><img src="/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BE%E5%BD%A2%E5%88%9D%E7%BA%A7/image-20221108164221690.png" alt="image-20221108164221690"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/R%E8%AF%AD%E8%A8%80/" rel="tag"># R语言</a>
+              <a href="/tags/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98/" rel="tag"># R语言实战</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/11/06/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E9%9B%86/" rel="prev" title="R语言实战：创建数据集">
+                  <i class="fa fa-chevron-left"></i> R语言实战：创建数据集
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/11/08/R%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" rel="next" title="R语言实战：基本数据管理">
+                  R语言实战：基本数据管理 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ye Jiu</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

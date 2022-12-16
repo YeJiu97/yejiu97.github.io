@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="了解什么是算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构与算法：什么是算法">
+<meta property="og:url" content="http://example.com/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AF%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:site_name" content="夜久">
+<meta property="og:description" content="了解什么是算法">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AF%E7%AE%97%E6%B3%95/image-41.png">
+<meta property="og:image" content="http://example.com/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AF%E7%AE%97%E6%B3%95/image-42.png">
+<meta property="og:image" content="http://example.com/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AF%E7%AE%97%E6%B3%95/image-40.png">
+<meta property="og:image" content="http://example.com/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AF%E7%AE%97%E6%B3%95/image-43.png">
+<meta property="og:image" content="http://example.com/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AF%E7%AE%97%E6%B3%95/image-44.png">
+<meta property="og:image" content="http://example.com/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AF%E7%AE%97%E6%B3%95/image-45.png">
+<meta property="article:published_time" content="2022-11-02T02:55:08.000Z">
+<meta property="article:modified_time" content="2022-11-02T02:55:55.240Z">
+<meta property="article:author" content="Ye Jiu">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="数据结构与算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AF%E7%AE%97%E6%B3%95/image-41.png">
+
+
+<link rel="canonical" href="http://example.com/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AF%E7%AE%97%E6%B3%95/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AF%E7%AE%97%E6%B3%95/","path":"2022/11/02/数据结构与算法：什么是算法/","title":"数据结构与算法：什么是算法"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>数据结构与算法：什么是算法 | 夜久</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">夜久</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-about"><a href="/about" rel="section">About</a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section">Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories" rel="section">Categories</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%AE%97%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">什么是算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4"><span class="nav-number">2.</span> <span class="nav-text">运行时间</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Ye Jiu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AF%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Ye Jiu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="夜久">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="数据结构与算法：什么是算法 | 夜久">
+      <meta itemprop="description" content="了解什么是算法">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          数据结构与算法：什么是算法
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-11-02 13:25:08 / Modified: 13:25:55" itemprop="dateCreated datePublished" datetime="2022-11-02T13:25:08+10:30">2022-11-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">了解什么是算法</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="什么是算法"><a href="#什么是算法" class="headerlink" title="什么是算法"></a>什么是算法</h2><p>算法是一组完成任务的指令。</p>
+<p><strong>二分查找法</strong></p>
+<p>假设要在电话簿中找一个名字以K打头的人，（现在谁还用电话簿！）可以从头开始翻页，直到进入以K打头的部分。但你很可能不这样做，而是从中间开始，因为你知道以K打头的名字在电话簿中间。</p>
+<p>这是一个查找问题，在前述所有情况下，都可使用同一种算法来解决问题，这种算法就是二分查找。</p>
+<p>二分查找是一种算法，其输入是一个有序的元素列表。如果要查找的元素包含在列表中，二分查找返回其位置；否则返回null。</p>
+<p>我随便想一个1～100的数字：</p>
+<p><img src="/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AF%E7%AE%97%E6%B3%95/image-41.png" alt="img"></p>
+<p>目标是以最少的次数猜到这个数字。你每次猜测后，我会说小了、大了或对了。</p>
+<p>如果是从1开始进行猜测：</p>
+<p><img src="/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AF%E7%AE%97%E6%B3%95/image-42.png" alt="img"></p>
+<p>而一个简单的方法则是：</p>
+<p><img src="/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AF%E7%AE%97%E6%B3%95/image-40.png" alt="img"></p>
+<p>小了，但排除了一半的数字！至此，你知道1～50都小了。接下来，你猜75。</p>
+<p>大了，那余下的数字又排除了一半！使用二分查找时，你猜测的是中间的数字，从而每次都 将余下的数字排除一半。接下来，你猜63（50和75中间的数字）。</p>
+<p><img src="/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AF%E7%AE%97%E6%B3%95/image-43.png" alt="img"></p>
+<p>无论数字是哪个，7次之内都是能够猜到的。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">def binary_search(list, item):</span><br><span class="line">    low = 0  # Python语言中列表的第一个元素的索引值是0</span><br><span class="line">    high = len(list) -1  # len()可以求出list的长度，但是因为从0开始，所以需要-1</span><br><span class="line">    </span><br><span class="line">    while low &lt;= high:  # 当范围没有被缩小到只剩下一个元素的时候</span><br><span class="line">        </span><br><span class="line">        mid = (low + high)  # 首先我们需获得代表中间元素的索引值 </span><br><span class="line">        </span><br><span class="line">        guess = list[mid]  # 接着提取这个索引值所应对的元素</span><br><span class="line">        if guess == item:  # 如果这个元素和推测的元素是一致的</span><br><span class="line">            return mid  # 则直接返回这个元素的索引值</span><br><span class="line">        if guess &gt; item:  # 如果猜测的数字大于了这个数字</span><br><span class="line">            high = mid -1  # 则将猜测上限变成小于mid的下一个元素</span><br><span class="line">        else:  # 否则，则将猜测的下限变成大于mid的下一个元素</span><br><span class="line">            low = mid + 1</span><br><span class="line">            </span><br><span class="line">    return None</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 我们来测试一下这个函数</span><br><span class="line"></span><br><span class="line">testing_list = [6, 7, 8, 9, 10]  # 需要已经被排序好的列表</span><br><span class="line"></span><br><span class="line">print(binary_search(testing_list, 7))  # 索引位置是从0开始的</span><br><span class="line">1</span><br><span class="line">print(binary_search(testing_list, -1))</span><br><span class="line">None</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="运行时间"><a href="#运行时间" class="headerlink" title="运行时间"></a>运行时间</h2><p>每次介绍算法时，我都将讨论其运行时间。一般而言，应选择效率最高的算法，以最大限度地减少运行时间或占用空间。</p>
+<p>回到前面的二分查找。使用它可节省多少时间呢？简单查找逐个地检查数字，如果列表包含100个数字，最多需要猜100次。如果列表包含40亿个数字，最多需要猜40亿次。换言之，最多需要猜测的次数与列表长度相同，这被称为线性时间（linear time）。</p>
+<p>二分查找则不同。如果列表包含100个元素，最多要猜7次；如果列表包含40亿个数字，最多需猜32次。二分查找的运行时间为对数时间（或log时间）。</p>
+<p><strong>大 O 表示法</strong></p>
+<p>大O表示法是一种特殊的表示法，指出了算法的速度有多快。</p>
+<p>大O表示法指出了算法有多快。例如，假设列表包含n个元素。简单查找需要检查每个元素，因此需要执行n次操作。使用大O表示法，这个运行时间为O(n)。</p>
+<p>单位秒呢？没有——大O表示法指的并非以秒为单位的速度。大O表示法让你能够比较操作数，它指出了算法运行时间的增速。</p>
+<p>再来看一个例子。为检查长度为n的列表，二分查找需要执行log n次操作。使用大O表示法，这个运行时间怎么表示呢？O(log n)。一般而言，大O表示法像下面这样。</p>
+<p><img src="/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AF%E7%AE%97%E6%B3%95/image-44.png" alt="img"></p>
+<p>这指出了算法需要执行的操作数。之所以称为大O表示法，是因为操作数前有个大O。</p>
+<p>大 O 表示法指出了最糟情况下的运行时间。</p>
+<p>一些常见的大 O 运行时间（从快到慢的顺序）：</p>
+<ol>
+<li>O(log n)，也叫对数时间，这样的算法包括二分查找。</li>
+<li>O(n)，也叫线性时间，这样的算法包括简单查找。</li>
+<li>O(n * log n)，这样的算法包括第4章将介绍的快速排序——一种速度较快的排序算法。</li>
+<li>O(n2)，这样的算法包括第2章将介绍的选择排序——一种速度较慢的排序算法。</li>
+<li>O(n!)，这样的算法包括接下来将介绍的旅行商问题的解决方案——一种非常慢的算法。</li>
+</ol>
+<p>可视化的结果如下所示：</p>
+<p><img src="/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AF%E7%AE%97%E6%B3%95/image-45.png" alt="img"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" rel="tag"># 数据结构与算法</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9ABig-O%E8%A1%A8%E7%A4%BA%E6%B3%95/" rel="prev" title="数据结构与算法：Big O表示法">
+                  <i class="fa fa-chevron-left"></i> 数据结构与算法：Big O表示法
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/" rel="next" title="数据结构与算法：选择排序">
+                  数据结构与算法：选择排序 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ye Jiu</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

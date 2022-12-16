@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Effective Python 笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Thinking Pythonic">
+<meta property="og:url" content="http://example.com/2022/11/22/Thinking-Pythonic/index.html">
+<meta property="og:site_name" content="夜久">
+<meta property="og:description" content="Effective Python 笔记">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2022/11/22/Thinking-Pythonic/image-20221122203248024.png">
+<meta property="og:image" content="http://example.com/2022/11/22/Thinking-Pythonic/image-20221122203301113.png">
+<meta property="article:published_time" content="2022-11-22T10:01:43.000Z">
+<meta property="article:modified_time" content="2022-12-01T09:54:01.721Z">
+<meta property="article:author" content="Ye Jiu">
+<meta property="article:tag" content="Python3">
+<meta property="article:tag" content="Effective Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/11/22/Thinking-Pythonic/image-20221122203248024.png">
+
+
+<link rel="canonical" href="http://example.com/2022/11/22/Thinking-Pythonic/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/11/22/Thinking-Pythonic/","path":"2022/11/22/Thinking-Pythonic/","title":"Thinking Pythonic"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Thinking Pythonic | 夜久</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">夜久</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-about"><a href="/about" rel="section">About</a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section">Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories" rel="section">Categories</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A1%AE%E8%AE%A4Python%E7%9A%84%E7%89%88%E6%9C%AC"><span class="nav-number">1.</span> <span class="nav-text">确认Python的版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%B5%E5%BE%AA-PEP8-%E9%A3%8E%E6%A0%BC"><span class="nav-number">2.</span> <span class="nav-text">遵循 PEP8 风格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%86%E8%A7%A3-bytes-str-%E5%92%8C-unicode-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">3.</span> <span class="nav-text">了解 bytes, str 和 unicode 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%94%AF%E6%8C%81%E6%8F%92%E5%80%BC%E7%9A%84f-string%E6%9D%A5%E6%9B%BF%E4%BB%A3c%E9%A3%8E%E6%A0%BC%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8Estr-format%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">使用支持插值的f-string来替代c风格的格式字符串与str.format方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%BD%E9%87%8F%E4%BD%BF%E7%94%A8-enumerate-%E5%8F%96%E4%BB%A3-range"><span class="nav-number">5.</span> <span class="nav-text">尽量使用 enumerate 取代 range</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Ye Jiu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/22/Thinking-Pythonic/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Ye Jiu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="夜久">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Thinking Pythonic | 夜久">
+      <meta itemprop="description" content="Effective Python 笔记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Thinking Pythonic
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-11-22 20:31:43" itemprop="dateCreated datePublished" datetime="2022-11-22T20:31:43+10:30">2022-11-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-12-01 20:24:01" itemprop="dateModified" datetime="2022-12-01T20:24:01+10:30">2022-12-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">Effective Python 笔记</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="确认Python的版本"><a href="#确认Python的版本" class="headerlink" title="确认Python的版本"></a>确认Python的版本</h2><p>确认Python版本的方法有三种，一种是在命令界面输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python --version</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 --version</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/11/22/Thinking-Pythonic/image-20221122203248024.png" alt="image-20221122203248024"></p>
+<p>第二种方法是直接进入python开发环境：</p>
+<p><img src="/2022/11/22/Thinking-Pythonic/image-20221122203301113.png" alt="image-20221122203301113"></p>
+<p>第三种方法是使用Python内置的sys模块来查询相关的值：</p>
+<p>In [2]:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line">print(sys.version_info)</span><br><span class="line">print(sys.version)</span><br><span class="line">sys.version_info(major=3, minor=10, micro=4, releaselevel=&#x27;final&#x27;, serial=0)</span><br><span class="line">3.10.4 (main, Jun 29 2022, 12:14:53) [GCC 11.2.0]</span><br></pre></td></tr></table></figure>
+
+<h2 id="遵循-PEP8-风格"><a href="#遵循-PEP8-风格" class="headerlink" title="遵循 PEP8 风格"></a>遵循 PEP8 风格</h2><p>PEP8 是《Python Enhancement Proposal #8》的缩写。</p>
+<p>关于空白的建议：</p>
+<ol>
+<li>使用空格而不是tab</li>
+<li>和语法相关的每一次都使用4个空格来来表示</li>
+<li>对于占据多行的长表达式，除了首行之外其余的各行都需要在通常的缩进级别之上再加上4个空格</li>
+<li>文件中的函数与类之间应该使用一个空行个开</li>
+<li>在使用下标来获取元素，调用函数或者给关键字参数赋值的时候，不要再两旁添加空格</li>
+<li>为变量赋值的时候，赋值符号的左侧和右侧应该各自写上一个空格，并且写一个就可以了</li>
+</ol>
+<p>关于命名的建议：</p>
+<ol>
+<li>函数，变量，或者属性，应该使用小写字母来拼写，个个单词之间可以使用下划线来进行连接。</li>
+<li>受保护的实例属性，应该以单个下划线开头</li>
+<li>四有的实例属性，应该以两个下划线开头</li>
+<li>类与异常，应该以买个单词首字母均大写的形式来进行命名</li>
+</ol>
+<p>关于表达式和语句的建议：</p>
+<ol>
+<li>采用 if a is not b 而不是 if not a is b，也就是说不要将否定词放在整个表达式的前面</li>
+<li>不要使用if len(somelist) &#x3D;&#x3D; 0 来判断somelist是否为空，而是直接使用if not somelist，这会假定：空值将自动评估为False</li>
+<li>Python的if语句会默认把非空值判定为True，所以需要判定somelist是否存在着值，也应当使用if somelist</li>
+<li>尽量不要使用当行的if语句，for循环或者while循环，而是应该将这些语句分成多行来写</li>
+<li>import的时候顺序为：标准模块，第三方模块和自用模块；并且每个部分的模块按照模块的首字母进行排序</li>
+</ol>
+<h2 id="了解-bytes-str-和-unicode-的区别"><a href="#了解-bytes-str-和-unicode-的区别" class="headerlink" title="了解 bytes, str 和 unicode 的区别"></a>了解 bytes, str 和 unicode 的区别</h2><p>Python有两种类型可以表示字符序列：一种是bytes，另一种是str。</p>
+<p>bytes实例包含的是原始数据，也就是8位的无符号值。(通常是按照ASCII编码标准来进行显示)。</p>
+<p>In [3]:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = b&#x27;h\x65110&#x27;</span><br><span class="line">print(list(a))</span><br><span class="line">print(a)</span><br><span class="line">[104, 101, 49, 49, 48]</span><br><span class="line">b&#x27;he110&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>str实例包含的是Unicode码点（code point，也就做代码点），这些码点与人类语言中的文本字符相对应。</p>
+<p>In [4]:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = &#x27;a\u0300 propos&#x27;</span><br><span class="line">print(list(a))</span><br><span class="line">print(a)</span><br><span class="line">[&#x27;a&#x27;, &#x27;̀&#x27;, &#x27; &#x27;, &#x27;p&#x27;, &#x27;r&#x27;, &#x27;o&#x27;, &#x27;p&#x27;, &#x27;o&#x27;, &#x27;s&#x27;]</span><br><span class="line">à propos</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用支持插值的f-string来替代c风格的格式字符串与str-format方法"><a href="#使用支持插值的f-string来替代c风格的格式字符串与str-format方法" class="headerlink" title="使用支持插值的f-string来替代c风格的格式字符串与str.format方法"></a>使用支持插值的f-string来替代c风格的格式字符串与str.format方法</h2><p>Python语言中最常用的字符串格式化方式是采用 % 格式化操作符。</p>
+<p>这个操作符左边的文本模块叫作格式字符串（format string），我们可以再操作符右边写上某个或者多个值所构成的元组，用来替代格式字符串里的相关符号。</p>
+<p>In [5]:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = 0b10111011</span><br><span class="line">b = 0xc5f</span><br><span class="line"></span><br><span class="line">print(&quot;Binary is %d, hex is %d&quot; % (a, b))</span><br><span class="line">Binary is 187, hex is 3167</span><br></pre></td></tr></table></figure>
+
+<p>格式字符串里面可以出现%d这样的格式说明符，这些说明符的意思是：%右边的对应数值会以这样的格式来替换这一部分内容。</p>
+<p>格式说明的写法来自于c语言的printf函数，Python语言和一些别的编程语言都依照那套写法来规定自己的格式字符串。</p>
+<p>但是C风格的格式字符串，再Python中有四个缺点。</p>
+<p>In [6]:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">key = &#x27;my_value&#x27;</span><br><span class="line">value = 1.234</span><br><span class="line">formatted = &#x27;%-10s = %.2f&#x27; % (key, value)</span><br><span class="line"></span><br><span class="line">print(formatted)</span><br><span class="line">my_value   = 1.23</span><br></pre></td></tr></table></figure>
+
+<p>如果我们将key和value进行位置互换：</p>
+<p>In [7]:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">reordered_tuple = &#x27;%-10s = %.2f&#x27; % (value, key)</span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line">TypeError                                 Traceback (most recent call last)</span><br><span class="line">Input In [7], in ()</span><br><span class="line">----&gt; 1 reordered_tuple = &#x27;%-10s = %.2f&#x27; % (value, key)</span><br><span class="line"></span><br><span class="line">TypeError: must be real number, not str</span><br></pre></td></tr></table></figure>
+
+<p>可以发现会报错。</p>
+<p>同理：</p>
+<p>In [8]:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">recordered_tuple = &#x27;%.2f = %-10s&#x27; % (key, value)</span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line">TypeError                                 Traceback (most recent call last)</span><br><span class="line">Input In [8], in ()</span><br><span class="line">----&gt; 1 recordered_tuple = &#x27;%.2f = %-10s&#x27; % (key, value)</span><br><span class="line"></span><br><span class="line">TypeError: must be real number, not str</span><br></pre></td></tr></table></figure>
+
+<p>也会报错。</p>
+<p>第二个缺点是，再填充模板之前，经常需要对准备填写进入的这个值稍微做一些处理，但是这样以来表达式可能会边的非常的长。</p>
+<p>In [9]:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">pantry = [(&#x27;avocados&#x27;, 1.25),</span><br><span class="line">          (&#x27;bananas&#x27;, 2.5),</span><br><span class="line">          (&#x27;cherries&#x27;, 15)]</span><br><span class="line"></span><br><span class="line">for i, (item, count) in enumerate(pantry):</span><br><span class="line">    print(&#x27;#%d: %-10s = %.2f&#x27; % (i, item, count))</span><br><span class="line">#0: avocados   = 1.25</span><br><span class="line">#1: bananas    = 2.50</span><br><span class="line">#2: cherries   = 15.00</span><br></pre></td></tr></table></figure>
+
+<p>如果想要让打印出来的信息更加的好懂，那么可能得把这几个值稍微调整一下，但是这么做的话%操作符右侧的那个三元组就会特别的长，所以需要多行拆分才能够写的下。</p>
+<p>In [10]:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">for i, (item, count) in enumerate(pantry):</span><br><span class="line">    print(&#x27;#%d: %-10s = %d&#x27; %(</span><br><span class="line">        i + 1, </span><br><span class="line">        item.title(),</span><br><span class="line">        round(count)))</span><br><span class="line">#1: Avocados   = 1</span><br><span class="line">#2: Bananas    = 2</span><br><span class="line">#3: Cherries   = 15</span><br></pre></td></tr></table></figure>
+
+<p>第三个缺点是，如果想用同一个值来填充格式字符串里的多个位置，那么必须在%操作符右侧的元组中相应地多次重复该值。</p>
+<p>In [11]:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">template = &#x27;%s loves food. See %s cook.&#x27;</span><br><span class="line">name = &#x27;Max&#x27;</span><br><span class="line">formatted = template % (name, name)</span><br><span class="line">print(formatted)</span><br><span class="line">Max loves food. See Max cook.</span><br></pre></td></tr></table></figure>
+
+<p>想要在填充之前将这个值修改一下，那么必须同时修改多处才可以，这是特别繁琐的事情。</p>
+<p>为了解决上面提到的一些问题，Python的%操作符允许我们使用dict取代tuple，这样的话，我们就可以让格式字符串里面的说明符与dict里面的键以相应的名称对应起来。</p>
+<p>In [14]:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">key = &quot;my_var&quot;</span><br><span class="line">value = 1.234</span><br><span class="line"></span><br><span class="line">old_way = &#x27;%-10s = %.2f&#x27; % (key, value)</span><br><span class="line"></span><br><span class="line">new_way = &#x27;%(key)-10s = %(value).2f&#x27; % &#123;</span><br><span class="line">    &#x27;key&#x27;:key, &#x27;value&#x27;:value&#125;  # origianl</span><br><span class="line"></span><br><span class="line">recordered = &#x27;%(key)-10s = %(value).2f&#x27; % &#123;</span><br><span class="line">    &#x27;value&#x27;:value, &#x27;key&#x27;:key&#125;  # swapped</span><br><span class="line"></span><br><span class="line">assert old_way == new_way == recordered</span><br></pre></td></tr></table></figure>
+
+<p>%(key)s这个说明符，意思就是用字符串(s)来表示dict里面名为key的哪个键所保存的值。</p>
+<p>这种方法可以用来解决刚才将到的第一个缺点和第三个缺点，但是第二个缺点会变得严重。</p>
+<p>在Python中采用C风格格式化表达式的第四个缺点是：把dict写道格式化表达式里面会让代码变多。</p>
+<p>In [16]:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">soup = &#x27;lentil&#x27;</span><br><span class="line">formatted = &#x27;Today\&#x27;s soup is %(soup)s.&#x27; % &#123;&#x27;soup&#x27;:soup&#125;</span><br><span class="line">print(formatted)</span><br><span class="line">Today&#x27;s soup is lentil.</span><br></pre></td></tr></table></figure>
+
+<p>每个键都至少要挟两次：一次是在格式说明符中，另一次是在字典中作为键。</p>
+<p>Python 3 添加了高级字符串格式化（Advanced String Formatting）机制，这个机制的表达能力比老式C风格的个是字符串要强，并且不再使用%操作符。</p>
+<p>In [17]:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = 1234.5678</span><br><span class="line">formatted = format(a, &#x27;,.2f&#x27;)</span><br><span class="line">print(formatted)</span><br><span class="line">1,234.57</span><br></pre></td></tr></table></figure>
+
+<p>In [18]:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">b = &quot;my string&quot;</span><br><span class="line">formattted = format(b, &#x27;^20s&#x27;)</span><br><span class="line">print(&#x27;💌&#x27;, formatted, &#x27;💌&#x27;)</span><br><span class="line">💌 1,234.57 💌</span><br></pre></td></tr></table></figure>
+
+<p>如果使用str类型的字符串里面有许多值都需要调整格式，则可以调用str的新format方法。</p>
+<p>该方法不使用%d这样的C风格格式说明符。而是把格式有待调整的那些位置在字符串里面使用{}代替，然后按照从左到右的顺序，把需要填写到那些位置的值传给format方法。</p>
+<p>In [20]:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">key = &quot;key_var&quot;</span><br><span class="line">value = 1.234</span><br><span class="line"></span><br><span class="line">formatted = &#x27;&#123;&#125; = &#123;&#125;.&#x27;.format(key, value)</span><br><span class="line">print(formatted)</span><br><span class="line">key_var = 1.234.</span><br></pre></td></tr></table></figure>
+
+<p>在Python解释器中输入：</p>
+<p>In [21]:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br><span class="line">473</span><br><span class="line">474</span><br><span class="line">475</span><br><span class="line">476</span><br><span class="line">477</span><br><span class="line">478</span><br><span class="line">479</span><br><span class="line">480</span><br><span class="line">481</span><br><span class="line">482</span><br><span class="line">483</span><br><span class="line">484</span><br><span class="line">485</span><br><span class="line">486</span><br><span class="line">487</span><br><span class="line">488</span><br><span class="line">489</span><br><span class="line">490</span><br><span class="line">491</span><br><span class="line">492</span><br><span class="line">493</span><br></pre></td><td class="code"><pre><span class="line">help(&quot;FORMATTING&quot;)</span><br><span class="line">Format String Syntax</span><br><span class="line">********************</span><br><span class="line"></span><br><span class="line">The &quot;str.format()&quot; method and the &quot;Formatter&quot; class share the same</span><br><span class="line">syntax for format strings (although in the case of &quot;Formatter&quot;,</span><br><span class="line">subclasses can define their own format string syntax).  The syntax is</span><br><span class="line">related to that of formatted string literals, but it is less</span><br><span class="line">sophisticated and, in particular, does not support arbitrary</span><br><span class="line">expressions.</span><br><span class="line"></span><br><span class="line">Format strings contain “replacement fields” surrounded by curly braces</span><br><span class="line">&quot;&#123;&#125;&quot;. Anything that is not contained in braces is considered literal</span><br><span class="line">text, which is copied unchanged to the output.  If you need to include</span><br><span class="line">a brace character in the literal text, it can be escaped by doubling:</span><br><span class="line">&quot;&#123;&#123;&quot; and &quot;&#125;&#125;&quot;.</span><br><span class="line"></span><br><span class="line">The grammar for a replacement field is as follows:</span><br><span class="line"></span><br><span class="line">      replacement_field ::= &quot;&#123;&quot; [field_name] [&quot;!&quot; conversion] [&quot;:&quot; format_spec] &quot;&#125;&quot;</span><br><span class="line">      field_name        ::= arg_name (&quot;.&quot; attribute_name | &quot;[&quot; element_index &quot;]&quot;)*</span><br><span class="line">      arg_name          ::= [identifier | digit+]</span><br><span class="line">      attribute_name    ::= identifier</span><br><span class="line">      element_index     ::= digit+ | index_string</span><br><span class="line">      index_string      ::=  +</span><br><span class="line">      conversion        ::= &quot;r&quot; | &quot;s&quot; | &quot;a&quot;</span><br><span class="line">      format_spec       ::= </span><br><span class="line"></span><br><span class="line">In less formal terms, the replacement field can start with a</span><br><span class="line">*field_name* that specifies the object whose value is to be formatted</span><br><span class="line">and inserted into the output instead of the replacement field. The</span><br><span class="line">*field_name* is optionally followed by a  *conversion* field, which is</span><br><span class="line">preceded by an exclamation point &quot;&#x27;!&#x27;&quot;, and a *format_spec*, which is</span><br><span class="line">preceded by a colon &quot;&#x27;:&#x27;&quot;.  These specify a non-default format for the</span><br><span class="line">replacement value.</span><br><span class="line"></span><br><span class="line">See also the Format Specification Mini-Language section.</span><br><span class="line"></span><br><span class="line">The *field_name* itself begins with an *arg_name* that is either a</span><br><span class="line">number or a keyword.  If it’s a number, it refers to a positional</span><br><span class="line">argument, and if it’s a keyword, it refers to a named keyword</span><br><span class="line">argument.  If the numerical arg_names in a format string are 0, 1, 2,</span><br><span class="line">… in sequence, they can all be omitted (not just some) and the numbers</span><br><span class="line">0, 1, 2, … will be automatically inserted in that order. Because</span><br><span class="line">*arg_name* is not quote-delimited, it is not possible to specify</span><br><span class="line">arbitrary dictionary keys (e.g., the strings &quot;&#x27;10&#x27;&quot; or &quot;&#x27;:-]&#x27;&quot;) within</span><br><span class="line">a format string. The *arg_name* can be followed by any number of index</span><br><span class="line">or attribute expressions. An expression of the form &quot;&#x27;.name&#x27;&quot; selects</span><br><span class="line">the named attribute using &quot;getattr()&quot;, while an expression of the form</span><br><span class="line">&quot;&#x27;[index]&#x27;&quot; does an index lookup using &quot;__getitem__()&quot;.</span><br><span class="line"></span><br><span class="line">Changed in version 3.1: The positional argument specifiers can be</span><br><span class="line">omitted for &quot;str.format()&quot;, so &quot;&#x27;&#123;&#125; &#123;&#125;&#x27;.format(a, b)&quot; is equivalent to</span><br><span class="line">&quot;&#x27;&#123;0&#125; &#123;1&#125;&#x27;.format(a, b)&quot;.</span><br><span class="line"></span><br><span class="line">Changed in version 3.4: The positional argument specifiers can be</span><br><span class="line">omitted for &quot;Formatter&quot;.</span><br><span class="line"></span><br><span class="line">Some simple format string examples:</span><br><span class="line"></span><br><span class="line">   &quot;First, thou shalt count to &#123;0&#125;&quot;  # References first positional argument</span><br><span class="line">   &quot;Bring me a &#123;&#125;&quot;                   # Implicitly references the first positional argument</span><br><span class="line">   &quot;From &#123;&#125; to &#123;&#125;&quot;                   # Same as &quot;From &#123;0&#125; to &#123;1&#125;&quot;</span><br><span class="line">   &quot;My quest is &#123;name&#125;&quot;              # References keyword argument &#x27;name&#x27;</span><br><span class="line">   &quot;Weight in tons &#123;0.weight&#125;&quot;       # &#x27;weight&#x27; attribute of first positional arg</span><br><span class="line">   &quot;Units destroyed: &#123;players[0]&#125;&quot;   # First element of keyword argument &#x27;players&#x27;.</span><br><span class="line"></span><br><span class="line">The *conversion* field causes a type coercion before formatting.</span><br><span class="line">Normally, the job of formatting a value is done by the &quot;__format__()&quot;</span><br><span class="line">method of the value itself.  However, in some cases it is desirable to</span><br><span class="line">force a type to be formatted as a string, overriding its own</span><br><span class="line">definition of formatting.  By converting the value to a string before</span><br><span class="line">calling &quot;__format__()&quot;, the normal formatting logic is bypassed.</span><br><span class="line"></span><br><span class="line">Three conversion flags are currently supported: &quot;&#x27;!s&#x27;&quot; which calls</span><br><span class="line">&quot;str()&quot; on the value, &quot;&#x27;!r&#x27;&quot; which calls &quot;repr()&quot; and &quot;&#x27;!a&#x27;&quot; which</span><br><span class="line">calls &quot;ascii()&quot;.</span><br><span class="line"></span><br><span class="line">Some examples:</span><br><span class="line"></span><br><span class="line">   &quot;Harold&#x27;s a clever &#123;0!s&#125;&quot;        # Calls str() on the argument first</span><br><span class="line">   &quot;Bring out the holy &#123;name!r&#125;&quot;    # Calls repr() on the argument first</span><br><span class="line">   &quot;More &#123;!a&#125;&quot;                      # Calls ascii() on the argument first</span><br><span class="line"></span><br><span class="line">The *format_spec* field contains a specification of how the value</span><br><span class="line">should be presented, including such details as field width, alignment,</span><br><span class="line">padding, decimal precision and so on.  Each value type can define its</span><br><span class="line">own “formatting mini-language” or interpretation of the *format_spec*.</span><br><span class="line"></span><br><span class="line">Most built-in types support a common formatting mini-language, which</span><br><span class="line">is described in the next section.</span><br><span class="line"></span><br><span class="line">A *format_spec* field can also include nested replacement fields</span><br><span class="line">within it. These nested replacement fields may contain a field name,</span><br><span class="line">conversion flag and format specification, but deeper nesting is not</span><br><span class="line">allowed.  The replacement fields within the format_spec are</span><br><span class="line">substituted before the *format_spec* string is interpreted. This</span><br><span class="line">allows the formatting of a value to be dynamically specified.</span><br><span class="line"></span><br><span class="line">See the Format examples section for some examples.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Format Specification Mini-Language</span><br><span class="line">==================================</span><br><span class="line"></span><br><span class="line">“Format specifications” are used within replacement fields contained</span><br><span class="line">within a format string to define how individual values are presented</span><br><span class="line">(see Format String Syntax and Formatted string literals). They can</span><br><span class="line">also be passed directly to the built-in &quot;format()&quot; function.  Each</span><br><span class="line">formattable type may define how the format specification is to be</span><br><span class="line">interpreted.</span><br><span class="line"></span><br><span class="line">Most built-in types implement the following options for format</span><br><span class="line">specifications, although some of the formatting options are only</span><br><span class="line">supported by the numeric types.</span><br><span class="line"></span><br><span class="line">A general convention is that an empty format specification produces</span><br><span class="line">the same result as if you had called &quot;str()&quot; on the value. A non-empty</span><br><span class="line">format specification typically modifies the result.</span><br><span class="line"></span><br><span class="line">The general form of a *standard format specifier* is:</span><br><span class="line"></span><br><span class="line">   format_spec     ::= [[fill]align][sign][#][0][width][grouping_option][.precision][type]</span><br><span class="line">   fill            ::= </span><br><span class="line">   align           ::= &quot;&lt;&quot; | &quot;&gt;&quot; | &quot;=&quot; | &quot;^&quot;</span><br><span class="line">   sign            ::= &quot;+&quot; | &quot;-&quot; | &quot; &quot;</span><br><span class="line">   width           ::= digit+</span><br><span class="line">   grouping_option ::= &quot;_&quot; | &quot;,&quot;</span><br><span class="line">   precision       ::= digit+</span><br><span class="line">   type            ::= &quot;b&quot; | &quot;c&quot; | &quot;d&quot; | &quot;e&quot; | &quot;E&quot; | &quot;f&quot; | &quot;F&quot; | &quot;g&quot; | &quot;G&quot; | &quot;n&quot; | &quot;o&quot; | &quot;s&quot; | &quot;x&quot; | &quot;X&quot; | &quot;%&quot;</span><br><span class="line"></span><br><span class="line">If a valid *align* value is specified, it can be preceded by a *fill*</span><br><span class="line">character that can be any character and defaults to a space if</span><br><span class="line">omitted. It is not possible to use a literal curly brace (”&quot;&#123;&quot;” or</span><br><span class="line">“&quot;&#125;&quot;”) as the *fill* character in a formatted string literal or when</span><br><span class="line">using the &quot;str.format()&quot; method.  However, it is possible to insert a</span><br><span class="line">curly brace with a nested replacement field.  This limitation doesn’t</span><br><span class="line">affect the &quot;format()&quot; function.</span><br><span class="line"></span><br><span class="line">The meaning of the various alignment options is as follows:</span><br><span class="line"></span><br><span class="line">   +-----------+------------------------------------------------------------+</span><br><span class="line">   | Option    | Meaning                                                    |</span><br><span class="line">   |===========|============================================================|</span><br><span class="line">   | &quot;&#x27;&lt;&#x27;&quot;     | Forces the field to be left-aligned within the available   |</span><br><span class="line">   |           | space (this is the default for most objects).              |</span><br><span class="line">   +-----------+------------------------------------------------------------+</span><br><span class="line">   | &quot;&#x27;&gt;&#x27;&quot;     | Forces the field to be right-aligned within the available  |</span><br><span class="line">   |           | space (this is the default for numbers).                   |</span><br><span class="line">   +-----------+------------------------------------------------------------+</span><br><span class="line">   | &quot;&#x27;=&#x27;&quot;     | Forces the padding to be placed after the sign (if any)    |</span><br><span class="line">   |           | but before the digits.  This is used for printing fields   |</span><br><span class="line">   |           | in the form ‘+000000120’. This alignment option is only    |</span><br><span class="line">   |           | valid for numeric types.  It becomes the default for       |</span><br><span class="line">   |           | numbers when ‘0’ immediately precedes the field width.     |</span><br><span class="line">   +-----------+------------------------------------------------------------+</span><br><span class="line">   | &quot;&#x27;^&#x27;&quot;     | Forces the field to be centered within the available       |</span><br><span class="line">   |           | space.                                                     |</span><br><span class="line">   +-----------+------------------------------------------------------------+</span><br><span class="line"></span><br><span class="line">Note that unless a minimum field width is defined, the field width</span><br><span class="line">will always be the same size as the data to fill it, so that the</span><br><span class="line">alignment option has no meaning in this case.</span><br><span class="line"></span><br><span class="line">The *sign* option is only valid for number types, and can be one of</span><br><span class="line">the following:</span><br><span class="line"></span><br><span class="line">   +-----------+------------------------------------------------------------+</span><br><span class="line">   | Option    | Meaning                                                    |</span><br><span class="line">   |===========|============================================================|</span><br><span class="line">   | &quot;&#x27;+&#x27;&quot;     | indicates that a sign should be used for both positive as  |</span><br><span class="line">   |           | well as negative numbers.                                  |</span><br><span class="line">   +-----------+------------------------------------------------------------+</span><br><span class="line">   | &quot;&#x27;-&#x27;&quot;     | indicates that a sign should be used only for negative     |</span><br><span class="line">   |           | numbers (this is the default behavior).                    |</span><br><span class="line">   +-----------+------------------------------------------------------------+</span><br><span class="line">   | space     | indicates that a leading space should be used on positive  |</span><br><span class="line">   |           | numbers, and a minus sign on negative numbers.             |</span><br><span class="line">   +-----------+------------------------------------------------------------+</span><br><span class="line"></span><br><span class="line">The &quot;&#x27;#&#x27;&quot; option causes the “alternate form” to be used for the</span><br><span class="line">conversion.  The alternate form is defined differently for different</span><br><span class="line">types.  This option is only valid for integer, float and complex</span><br><span class="line">types. For integers, when binary, octal, or hexadecimal output is</span><br><span class="line">used, this option adds the respective prefix &quot;&#x27;0b&#x27;&quot;, &quot;&#x27;0o&#x27;&quot;, &quot;&#x27;0x&#x27;&quot;,</span><br><span class="line">or &quot;&#x27;0X&#x27;&quot; to the output value. For float and complex the alternate</span><br><span class="line">form causes the result of the conversion to always contain a decimal-</span><br><span class="line">point character, even if no digits follow it. Normally, a decimal-</span><br><span class="line">point character appears in the result of these conversions only if a</span><br><span class="line">digit follows it. In addition, for &quot;&#x27;g&#x27;&quot; and &quot;&#x27;G&#x27;&quot; conversions,</span><br><span class="line">trailing zeros are not removed from the result.</span><br><span class="line"></span><br><span class="line">The &quot;&#x27;,&#x27;&quot; option signals the use of a comma for a thousands separator.</span><br><span class="line">For a locale aware separator, use the &quot;&#x27;n&#x27;&quot; integer presentation type</span><br><span class="line">instead.</span><br><span class="line"></span><br><span class="line">Changed in version 3.1: Added the &quot;&#x27;,&#x27;&quot; option (see also **PEP 378**).</span><br><span class="line"></span><br><span class="line">The &quot;&#x27;_&#x27;&quot; option signals the use of an underscore for a thousands</span><br><span class="line">separator for floating point presentation types and for integer</span><br><span class="line">presentation type &quot;&#x27;d&#x27;&quot;.  For integer presentation types &quot;&#x27;b&#x27;&quot;, &quot;&#x27;o&#x27;&quot;,</span><br><span class="line">&quot;&#x27;x&#x27;&quot;, and &quot;&#x27;X&#x27;&quot;, underscores will be inserted every 4 digits.  For</span><br><span class="line">other presentation types, specifying this option is an error.</span><br><span class="line"></span><br><span class="line">Changed in version 3.6: Added the &quot;&#x27;_&#x27;&quot; option (see also **PEP 515**).</span><br><span class="line"></span><br><span class="line">*width* is a decimal integer defining the minimum total field width,</span><br><span class="line">including any prefixes, separators, and other formatting characters.</span><br><span class="line">If not specified, then the field width will be determined by the</span><br><span class="line">content.</span><br><span class="line"></span><br><span class="line">When no explicit alignment is given, preceding the *width* field by a</span><br><span class="line">zero (&quot;&#x27;0&#x27;&quot;) character enables sign-aware zero-padding for numeric</span><br><span class="line">types.  This is equivalent to a *fill* character of &quot;&#x27;0&#x27;&quot; with an</span><br><span class="line">*alignment* type of &quot;&#x27;=&#x27;&quot;.</span><br><span class="line"></span><br><span class="line">Changed in version 3.10: Preceding the *width* field by &quot;&#x27;0&#x27;&quot; no</span><br><span class="line">longer affects the default alignment for strings.</span><br><span class="line"></span><br><span class="line">The *precision* is a decimal integer indicating how many digits should</span><br><span class="line">be displayed after the decimal point for presentation types &quot;&#x27;f&#x27;&quot; and</span><br><span class="line">&quot;&#x27;F&#x27;&quot;, or before and after the decimal point for presentation types</span><br><span class="line">&quot;&#x27;g&#x27;&quot; or &quot;&#x27;G&#x27;&quot;.  For string presentation types the field indicates the</span><br><span class="line">maximum field size - in other words, how many characters will be used</span><br><span class="line">from the field content.  The *precision* is not allowed for integer</span><br><span class="line">presentation types.</span><br><span class="line"></span><br><span class="line">Finally, the *type* determines how the data should be presented.</span><br><span class="line"></span><br><span class="line">The available string presentation types are:</span><br><span class="line"></span><br><span class="line">   +-----------+------------------------------------------------------------+</span><br><span class="line">   | Type      | Meaning                                                    |</span><br><span class="line">   |===========|============================================================|</span><br><span class="line">   | &quot;&#x27;s&#x27;&quot;     | String format. This is the default type for strings and    |</span><br><span class="line">   |           | may be omitted.                                            |</span><br><span class="line">   +-----------+------------------------------------------------------------+</span><br><span class="line">   | None      | The same as &quot;&#x27;s&#x27;&quot;.                                         |</span><br><span class="line">   +-----------+------------------------------------------------------------+</span><br><span class="line"></span><br><span class="line">The available integer presentation types are:</span><br><span class="line"></span><br><span class="line">   +-----------+------------------------------------------------------------+</span><br><span class="line">   | Type      | Meaning                                                    |</span><br><span class="line">   |===========|============================================================|</span><br><span class="line">   | &quot;&#x27;b&#x27;&quot;     | Binary format. Outputs the number in base 2.               |</span><br><span class="line">   +-----------+------------------------------------------------------------+</span><br><span class="line">   | &quot;&#x27;c&#x27;&quot;     | Character. Converts the integer to the corresponding       |</span><br><span class="line">   |           | unicode character before printing.                         |</span><br><span class="line">   +-----------+------------------------------------------------------------+</span><br><span class="line">   | &quot;&#x27;d&#x27;&quot;     | Decimal Integer. Outputs the number in base 10.            |</span><br><span class="line">   +-----------+------------------------------------------------------------+</span><br><span class="line">   | &quot;&#x27;o&#x27;&quot;     | Octal format. Outputs the number in base 8.                |</span><br><span class="line">   +-----------+------------------------------------------------------------+</span><br><span class="line">   | &quot;&#x27;x&#x27;&quot;     | Hex format. Outputs the number in base 16, using lower-    |</span><br><span class="line">   |           | case letters for the digits above 9.                       |</span><br><span class="line">   +-----------+------------------------------------------------------------+</span><br><span class="line">   | &quot;&#x27;X&#x27;&quot;     | Hex format. Outputs the number in base 16, using upper-    |</span><br><span class="line">   |           | case letters for the digits above 9. In case &quot;&#x27;#&#x27;&quot; is      |</span><br><span class="line">   |           | specified, the prefix &quot;&#x27;0x&#x27;&quot; will be upper-cased to &quot;&#x27;0X&#x27;&quot; |</span><br><span class="line">   |           | as well.                                                   |</span><br><span class="line">   +-----------+------------------------------------------------------------+</span><br><span class="line">   | &quot;&#x27;n&#x27;&quot;     | Number. This is the same as &quot;&#x27;d&#x27;&quot;, except that it uses the |</span><br><span class="line">   |           | current locale setting to insert the appropriate number    |</span><br><span class="line">   |           | separator characters.                                      |</span><br><span class="line">   +-----------+------------------------------------------------------------+</span><br><span class="line">   | None      | The same as &quot;&#x27;d&#x27;&quot;.                                         |</span><br><span class="line">   +-----------+------------------------------------------------------------+</span><br><span class="line"></span><br><span class="line">In addition to the above presentation types, integers can be formatted</span><br><span class="line">with the floating point presentation types listed below (except &quot;&#x27;n&#x27;&quot;</span><br><span class="line">and &quot;None&quot;). When doing so, &quot;float()&quot; is used to convert the integer</span><br><span class="line">to a floating point number before formatting.</span><br><span class="line"></span><br><span class="line">The available presentation types for &quot;float&quot; and &quot;Decimal&quot; values are:</span><br><span class="line"></span><br><span class="line">   +-----------+------------------------------------------------------------+</span><br><span class="line">   | Type      | Meaning                                                    |</span><br><span class="line">   |===========|============================================================|</span><br><span class="line">   | &quot;&#x27;e&#x27;&quot;     | Scientific notation. For a given precision &quot;p&quot;, formats    |</span><br><span class="line">   |           | the number in scientific notation with the letter ‘e’      |</span><br><span class="line">   |           | separating the coefficient from the exponent. The          |</span><br><span class="line">   |           | coefficient has one digit before and &quot;p&quot; digits after the  |</span><br><span class="line">   |           | decimal point, for a total of &quot;p + 1&quot; significant digits.  |</span><br><span class="line">   |           | With no precision given, uses a precision of &quot;6&quot; digits    |</span><br><span class="line">   |           | after the decimal point for &quot;float&quot;, and shows all         |</span><br><span class="line">   |           | coefficient digits for &quot;Decimal&quot;. If no digits follow the  |</span><br><span class="line">   |           | decimal point, the decimal point is also removed unless    |</span><br><span class="line">   |           | the &quot;#&quot; option is used.                                    |</span><br><span class="line">   +-----------+------------------------------------------------------------+</span><br><span class="line">   | &quot;&#x27;E&#x27;&quot;     | Scientific notation. Same as &quot;&#x27;e&#x27;&quot; except it uses an upper |</span><br><span class="line">   |           | case ‘E’ as the separator character.                       |</span><br><span class="line">   +-----------+------------------------------------------------------------+</span><br><span class="line">   | &quot;&#x27;f&#x27;&quot;     | Fixed-point notation. For a given precision &quot;p&quot;, formats   |</span><br><span class="line">   |           | the number as a decimal number with exactly &quot;p&quot; digits     |</span><br><span class="line">   |           | following the decimal point. With no precision given, uses |</span><br><span class="line">   |           | a precision of &quot;6&quot; digits after the decimal point for      |</span><br><span class="line">   |           | &quot;float&quot;, and uses a precision large enough to show all     |</span><br><span class="line">   |           | coefficient digits for &quot;Decimal&quot;. If no digits follow the  |</span><br><span class="line">   |           | decimal point, the decimal point is also removed unless    |</span><br><span class="line">   |           | the &quot;#&quot; option is used.                                    |</span><br><span class="line">   +-----------+------------------------------------------------------------+</span><br><span class="line">   | &quot;&#x27;F&#x27;&quot;     | Fixed-point notation. Same as &quot;&#x27;f&#x27;&quot;, but converts &quot;nan&quot; to |</span><br><span class="line">   |           | &quot;NAN&quot; and &quot;inf&quot; to &quot;INF&quot;.                                  |</span><br><span class="line">   +-----------+------------------------------------------------------------+</span><br><span class="line">   | &quot;&#x27;g&#x27;&quot;     | General format.  For a given precision &quot;p &gt;= 1&quot;, this      |</span><br><span class="line">   |           | rounds the number to &quot;p&quot; significant digits and then       |</span><br><span class="line">   |           | formats the result in either fixed-point format or in      |</span><br><span class="line">   |           | scientific notation, depending on its magnitude. A         |</span><br><span class="line">   |           | precision of &quot;0&quot; is treated as equivalent to a precision   |</span><br><span class="line">   |           | of &quot;1&quot;.  The precise rules are as follows: suppose that    |</span><br><span class="line">   |           | the result formatted with presentation type &quot;&#x27;e&#x27;&quot; and      |</span><br><span class="line">   |           | precision &quot;p-1&quot; would have exponent &quot;exp&quot;.  Then, if &quot;m &lt;= |</span><br><span class="line">   |           | exp &lt; p&quot;, where &quot;m&quot; is -4 for floats and -6 for            |</span><br><span class="line">   |           | &quot;Decimals&quot;, the number is formatted with presentation type |</span><br><span class="line">   |           | &quot;&#x27;f&#x27;&quot; and precision &quot;p-1-exp&quot;.  Otherwise, the number is   |</span><br><span class="line">   |           | formatted with presentation type &quot;&#x27;e&#x27;&quot; and precision       |</span><br><span class="line">   |           | &quot;p-1&quot;. In both cases insignificant trailing zeros are      |</span><br><span class="line">   |           | removed from the significand, and the decimal point is     |</span><br><span class="line">   |           | also removed if there are no remaining digits following    |</span><br><span class="line">   |           | it, unless the &quot;&#x27;#&#x27;&quot; option is used.  With no precision    |</span><br><span class="line">   |           | given, uses a precision of &quot;6&quot; significant digits for      |</span><br><span class="line">   |           | &quot;float&quot;. For &quot;Decimal&quot;, the coefficient of the result is   |</span><br><span class="line">   |           | formed from the coefficient digits of the value;           |</span><br><span class="line">   |           | scientific notation is used for values smaller than &quot;1e-6&quot; |</span><br><span class="line">   |           | in absolute value and values where the place value of the  |</span><br><span class="line">   |           | least significant digit is larger than 1, and fixed-point  |</span><br><span class="line">   |           | notation is used otherwise.  Positive and negative         |</span><br><span class="line">   |           | infinity, positive and negative zero, and nans, are        |</span><br><span class="line">   |           | formatted as &quot;inf&quot;, &quot;-inf&quot;, &quot;0&quot;, &quot;-0&quot; and &quot;nan&quot;            |</span><br><span class="line">   |           | respectively, regardless of the precision.                 |</span><br><span class="line">   +-----------+------------------------------------------------------------+</span><br><span class="line">   | &quot;&#x27;G&#x27;&quot;     | General format. Same as &quot;&#x27;g&#x27;&quot; except switches to &quot;&#x27;E&#x27;&quot; if  |</span><br><span class="line">   |           | the number gets too large. The representations of infinity |</span><br><span class="line">   |           | and NaN are uppercased, too.                               |</span><br><span class="line">   +-----------+------------------------------------------------------------+</span><br><span class="line">   | &quot;&#x27;n&#x27;&quot;     | Number. This is the same as &quot;&#x27;g&#x27;&quot;, except that it uses the |</span><br><span class="line">   |           | current locale setting to insert the appropriate number    |</span><br><span class="line">   |           | separator characters.                                      |</span><br><span class="line">   +-----------+------------------------------------------------------------+</span><br><span class="line">   | &quot;&#x27;%&#x27;&quot;     | Percentage. Multiplies the number by 100 and displays in   |</span><br><span class="line">   |           | fixed (&quot;&#x27;f&#x27;&quot;) format, followed by a percent sign.          |</span><br><span class="line">   +-----------+------------------------------------------------------------+</span><br><span class="line">   | None      | For &quot;float&quot; this is the same as &quot;&#x27;g&#x27;&quot;, except that when    |</span><br><span class="line">   |           | fixed-point notation is used to format the result, it      |</span><br><span class="line">   |           | always includes at least one digit past the decimal point. |</span><br><span class="line">   |           | The precision used is as large as needed to represent the  |</span><br><span class="line">   |           | given value faithfully.  For &quot;Decimal&quot;, this is the same   |</span><br><span class="line">   |           | as either &quot;&#x27;g&#x27;&quot; or &quot;&#x27;G&#x27;&quot; depending on the value of         |</span><br><span class="line">   |           | &quot;context.capitals&quot; for the current decimal context.  The   |</span><br><span class="line">   |           | overall effect is to match the output of &quot;str()&quot; as        |</span><br><span class="line">   |           | altered by the other format modifiers.                     |</span><br><span class="line">   +-----------+------------------------------------------------------------+</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Format examples</span><br><span class="line">===============</span><br><span class="line"></span><br><span class="line">This section contains examples of the &quot;str.format()&quot; syntax and</span><br><span class="line">comparison with the old &quot;%&quot;-formatting.</span><br><span class="line"></span><br><span class="line">In most of the cases the syntax is similar to the old &quot;%&quot;-formatting,</span><br><span class="line">with the addition of the &quot;&#123;&#125;&quot; and with &quot;:&quot; used instead of &quot;%&quot;. For</span><br><span class="line">example, &quot;&#x27;%03.2f&#x27;&quot; can be translated to &quot;&#x27;&#123;:03.2f&#125;&#x27;&quot;.</span><br><span class="line"></span><br><span class="line">The new format syntax also supports new and different options, shown</span><br><span class="line">in the following examples.</span><br><span class="line"></span><br><span class="line">Accessing arguments by position:</span><br><span class="line"></span><br><span class="line">   &gt;&gt;&gt; &#x27;&#123;0&#125;, &#123;1&#125;, &#123;2&#125;&#x27;.format(&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;)</span><br><span class="line">   &#x27;a, b, c&#x27;</span><br><span class="line">   &gt;&gt;&gt; &#x27;&#123;&#125;, &#123;&#125;, &#123;&#125;&#x27;.format(&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;)  # 3.1+ only</span><br><span class="line">   &#x27;a, b, c&#x27;</span><br><span class="line">   &gt;&gt;&gt; &#x27;&#123;2&#125;, &#123;1&#125;, &#123;0&#125;&#x27;.format(&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;)</span><br><span class="line">   &#x27;c, b, a&#x27;</span><br><span class="line">   &gt;&gt;&gt; &#x27;&#123;2&#125;, &#123;1&#125;, &#123;0&#125;&#x27;.format(*&#x27;abc&#x27;)      # unpacking argument sequence</span><br><span class="line">   &#x27;c, b, a&#x27;</span><br><span class="line">   &gt;&gt;&gt; &#x27;&#123;0&#125;&#123;1&#125;&#123;0&#125;&#x27;.format(&#x27;abra&#x27;, &#x27;cad&#x27;)   # arguments&#x27; indices can be repeated</span><br><span class="line">   &#x27;abracadabra&#x27;</span><br><span class="line"></span><br><span class="line">Accessing arguments by name:</span><br><span class="line"></span><br><span class="line">   &gt;&gt;&gt; &#x27;Coordinates: &#123;latitude&#125;, &#123;longitude&#125;&#x27;.format(latitude=&#x27;37.24N&#x27;, longitude=&#x27;-115.81W&#x27;)</span><br><span class="line">   &#x27;Coordinates: 37.24N, -115.81W&#x27;</span><br><span class="line">   &gt;&gt;&gt; coord = &#123;&#x27;latitude&#x27;: &#x27;37.24N&#x27;, &#x27;longitude&#x27;: &#x27;-115.81W&#x27;&#125;</span><br><span class="line">   &gt;&gt;&gt; &#x27;Coordinates: &#123;latitude&#125;, &#123;longitude&#125;&#x27;.format(**coord)</span><br><span class="line">   &#x27;Coordinates: 37.24N, -115.81W&#x27;</span><br><span class="line"></span><br><span class="line">Accessing arguments’ attributes:</span><br><span class="line"></span><br><span class="line">   &gt;&gt;&gt; c = 3-5j</span><br><span class="line">   &gt;&gt;&gt; (&#x27;The complex number &#123;0&#125; is formed from the real part &#123;0.real&#125; &#x27;</span><br><span class="line">   ...  &#x27;and the imaginary part &#123;0.imag&#125;.&#x27;).format(c)</span><br><span class="line">   &#x27;The complex number (3-5j) is formed from the real part 3.0 and the imaginary part -5.0.&#x27;</span><br><span class="line">   &gt;&gt;&gt; class Point:</span><br><span class="line">   ...     def __init__(self, x, y):</span><br><span class="line">   ...         self.x, self.y = x, y</span><br><span class="line">   ...     def __str__(self):</span><br><span class="line">   ...         return &#x27;Point(&#123;self.x&#125;, &#123;self.y&#125;)&#x27;.format(self=self)</span><br><span class="line">   ...</span><br><span class="line">   &gt;&gt;&gt; str(Point(4, 2))</span><br><span class="line">   &#x27;Point(4, 2)&#x27;</span><br><span class="line"></span><br><span class="line">Accessing arguments’ items:</span><br><span class="line"></span><br><span class="line">   &gt;&gt;&gt; coord = (3, 5)</span><br><span class="line">   &gt;&gt;&gt; &#x27;X: &#123;0[0]&#125;;  Y: &#123;0[1]&#125;&#x27;.format(coord)</span><br><span class="line">   &#x27;X: 3;  Y: 5&#x27;</span><br><span class="line"></span><br><span class="line">Replacing &quot;%s&quot; and &quot;%r&quot;:</span><br><span class="line"></span><br><span class="line">   &gt;&gt;&gt; &quot;repr() shows quotes: &#123;!r&#125;; str() doesn&#x27;t: &#123;!s&#125;&quot;.format(&#x27;test1&#x27;, &#x27;test2&#x27;)</span><br><span class="line">   &quot;repr() shows quotes: &#x27;test1&#x27;; str() doesn&#x27;t: test2&quot;</span><br><span class="line"></span><br><span class="line">Aligning the text and specifying a width:</span><br><span class="line"></span><br><span class="line">   &gt;&gt;&gt; &#x27;&#123;:&lt;30&#125;&#x27;.format(&#x27;left aligned&#x27;)</span><br><span class="line">   &#x27;left aligned                  &#x27;</span><br><span class="line">   &gt;&gt;&gt; &#x27;&#123;:&gt;30&#125;&#x27;.format(&#x27;right aligned&#x27;)</span><br><span class="line">   &#x27;                 right aligned&#x27;</span><br><span class="line">   &gt;&gt;&gt; &#x27;&#123;:^30&#125;&#x27;.format(&#x27;centered&#x27;)</span><br><span class="line">   &#x27;           centered           &#x27;</span><br><span class="line">   &gt;&gt;&gt; &#x27;&#123;:*^30&#125;&#x27;.format(&#x27;centered&#x27;)  # use &#x27;*&#x27; as a fill char</span><br><span class="line">   &#x27;***********centered***********&#x27;</span><br><span class="line"></span><br><span class="line">Replacing &quot;%+f&quot;, &quot;%-f&quot;, and &quot;% f&quot; and specifying a sign:</span><br><span class="line"></span><br><span class="line">   &gt;&gt;&gt; &#x27;&#123;:+f&#125;; &#123;:+f&#125;&#x27;.format(3.14, -3.14)  # show it always</span><br><span class="line">   &#x27;+3.140000; -3.140000&#x27;</span><br><span class="line">   &gt;&gt;&gt; &#x27;&#123;: f&#125;; &#123;: f&#125;&#x27;.format(3.14, -3.14)  # show a space for positive numbers</span><br><span class="line">   &#x27; 3.140000; -3.140000&#x27;</span><br><span class="line">   &gt;&gt;&gt; &#x27;&#123;:-f&#125;; &#123;:-f&#125;&#x27;.format(3.14, -3.14)  # show only the minus -- same as &#x27;&#123;:f&#125;; &#123;:f&#125;&#x27;</span><br><span class="line">   &#x27;3.140000; -3.140000&#x27;</span><br><span class="line"></span><br><span class="line">Replacing &quot;%x&quot; and &quot;%o&quot; and converting the value to different bases:</span><br><span class="line"></span><br><span class="line">   &gt;&gt;&gt; # format also supports binary numbers</span><br><span class="line">   &gt;&gt;&gt; &quot;int: &#123;0:d&#125;;  hex: &#123;0:x&#125;;  oct: &#123;0:o&#125;;  bin: &#123;0:b&#125;&quot;.format(42)</span><br><span class="line">   &#x27;int: 42;  hex: 2a;  oct: 52;  bin: 101010&#x27;</span><br><span class="line">   &gt;&gt;&gt; # with 0x, 0o, or 0b as prefix:</span><br><span class="line">   &gt;&gt;&gt; &quot;int: &#123;0:d&#125;;  hex: &#123;0:#x&#125;;  oct: &#123;0:#o&#125;;  bin: &#123;0:#b&#125;&quot;.format(42)</span><br><span class="line">   &#x27;int: 42;  hex: 0x2a;  oct: 0o52;  bin: 0b101010&#x27;</span><br><span class="line"></span><br><span class="line">Using the comma as a thousands separator:</span><br><span class="line"></span><br><span class="line">   &gt;&gt;&gt; &#x27;&#123;:,&#125;&#x27;.format(1234567890)</span><br><span class="line">   &#x27;1,234,567,890&#x27;</span><br><span class="line"></span><br><span class="line">Expressing a percentage:</span><br><span class="line"></span><br><span class="line">   &gt;&gt;&gt; points = 19</span><br><span class="line">   &gt;&gt;&gt; total = 22</span><br><span class="line">   &gt;&gt;&gt; &#x27;Correct answers: &#123;:.2%&#125;&#x27;.format(points/total)</span><br><span class="line">   &#x27;Correct answers: 86.36%&#x27;</span><br><span class="line"></span><br><span class="line">Using type-specific formatting:</span><br><span class="line"></span><br><span class="line">   &gt;&gt;&gt; import datetime</span><br><span class="line">   &gt;&gt;&gt; d = datetime.datetime(2010, 7, 4, 12, 15, 58)</span><br><span class="line">   &gt;&gt;&gt; &#x27;&#123;:%Y-%m-%d %H:%M:%S&#125;&#x27;.format(d)</span><br><span class="line">   &#x27;2010-07-04 12:15:58&#x27;</span><br><span class="line"></span><br><span class="line">Nesting arguments and more complex examples:</span><br><span class="line"></span><br><span class="line">   &gt;&gt;&gt; for align, text in zip(&#x27;&lt;^&gt;&#x27;, [&#x27;left&#x27;, &#x27;center&#x27;, &#x27;right&#x27;]):</span><br><span class="line">   ...     &#x27;&#123;0:&#123;fill&#125;&#123;align&#125;16&#125;&#x27;.format(text, fill=align, align=align)</span><br><span class="line">   ...</span><br><span class="line">   &#x27;left&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&#x27;</span><br><span class="line">   &#x27;^^^^^center^^^^^&#x27;</span><br><span class="line">   &#x27;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;right&#x27;</span><br><span class="line">   &gt;&gt;&gt;</span><br><span class="line">   &gt;&gt;&gt; octets = [192, 168, 0, 1]</span><br><span class="line">   &gt;&gt;&gt; &#x27;&#123;:02X&#125;&#123;:02X&#125;&#123;:02X&#125;&#123;:02X&#125;&#x27;.format(*octets)</span><br><span class="line">   &#x27;C0A80001&#x27;</span><br><span class="line">   &gt;&gt;&gt; int(_, 16)</span><br><span class="line">   3232235521</span><br><span class="line">   &gt;&gt;&gt;</span><br><span class="line">   &gt;&gt;&gt; width = 5</span><br><span class="line">   &gt;&gt;&gt; for num in range(5,12): </span><br><span class="line">   ...     for base in &#x27;dXob&#x27;:</span><br><span class="line">   ...         print(&#x27;&#123;0:&#123;width&#125;&#123;base&#125;&#125;&#x27;.format(num, base=base, width=width), end=&#x27; &#x27;)</span><br><span class="line">   ...     print()</span><br><span class="line">   ...</span><br><span class="line">       5     5     5   101</span><br><span class="line">       6     6     6   110</span><br><span class="line">       7     7     7   111</span><br><span class="line">       8     8    10  1000</span><br><span class="line">       9     9    11  1001</span><br><span class="line">      10     A    12  1010</span><br><span class="line">      11     B    13  1011</span><br><span class="line"></span><br><span class="line">Related help topics: OPERATORS</span><br></pre></td></tr></table></figure>
+
+<p>便可以调出如上所示的帮助信息。</p>
+<p>我们来尝试一下这一段代码：</p>
+<p>In [22]:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">formatted = &#x27;&#123;:&lt;20&#125; = &#123;:.2f&#125;&#x27;.format(key, value)</span><br><span class="line">print(formatted)</span><br><span class="line">key_var              = 1.23</span><br></pre></td></tr></table></figure>
+
+<p>在{}中写一个毛好，然后把格式说明符写在冒号的右边，用以规定format方法所接受的这个值应该按照怎样的格式来调整。</p>
+<p>我们可以给str的{}里面写上数字，用来指代format方法在这个位置所接收到的参数位置索引。</p>
+<p>In [23]:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">formatted = &#x27;&#123;1&#125; = &#123;0&#125;&#x27;.format(key, value)</span><br><span class="line">print(formatted)</span><br><span class="line">1.234 = key_var</span><br></pre></td></tr></table></figure>
+
+<p>从Python 3.6开始添加了一种新的特性，也就是 插值格式字符串（f-string）。</p>
+<p>例子如下所示：</p>
+<p>In [24]:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">key = &#x27;my_var&#x27;</span><br><span class="line">value = 1.234</span><br><span class="line"></span><br><span class="line">formatted = f&quot;&#123;key&#125; = &#123;value&#125;&quot;</span><br><span class="line">print(formatted)</span><br><span class="line">my_var = 1.234</span><br></pre></td></tr></table></figure>
+
+<p>f-string支持在{}中的冒号右侧采用规则：</p>
+<p>In [25]:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">formatted = f&quot;&#123;key!r:&lt;10&#125; = &#123;value:.2f&#125;&quot;</span><br><span class="line">print(formatted)</span><br><span class="line">&#x27;my_var&#x27;   = 1.23</span><br></pre></td></tr></table></figure>
+
+<h2 id="尽量使用-enumerate-取代-range"><a href="#尽量使用-enumerate-取代-range" class="headerlink" title="尽量使用 enumerate 取代 range"></a>尽量使用 enumerate 取代 range</h2><p>Python内置了range函数来迭代一系列的整数：</p>
+<p>In [26]:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from random import randint</span><br><span class="line"></span><br><span class="line">random_bits = 0</span><br><span class="line"></span><br><span class="line">for i in range(32):</span><br><span class="line">    if randint(0, 1):</span><br><span class="line">        random_bits |= 1 &lt;&lt; i</span><br></pre></td></tr></table></figure>
+
+<p>In [27]:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(bin(random_bits))</span><br><span class="line">0b1111110101000011000001010001101</span><br></pre></td></tr></table></figure>
+
+<p>如果要迭代的是某种数据结构，比如说字符串列表之类的，可以直接在这个序列上面迭代而无需使用range：</p>
+<p>In [30]:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">list_one = [&quot;chocolate&quot;, &quot;vanilla&quot;, &quot;pecan&quot;, &quot;strawberry&quot;]</span><br><span class="line"></span><br><span class="line">for element in list_one:</span><br><span class="line">    print(f&quot;&#123;element&#125; is delicious&quot;)</span><br><span class="line">chocolate is delicious</span><br><span class="line">vanilla is delicious</span><br><span class="line">pecan is delicious</span><br><span class="line">strawberry is delicious</span><br></pre></td></tr></table></figure>
+
+<p>我们可以使用传统的range方法来给出排名：</p>
+<p>In [32]:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for i in range(len(list_one)):</span><br><span class="line">    element = list_one[i]</span><br><span class="line">    print(f&#x27;&#123;i + 1&#125;: &#123;element&#125;&#x27;)</span><br><span class="line">1: chocolate</span><br><span class="line">2: vanilla</span><br><span class="line">3: pecan</span><br><span class="line">4: strawberry</span><br></pre></td></tr></table></figure>
+
+<p>Python有一个内置的函数，叫作 enumerate，可以用来解决一些问题。</p>
+<p>enumerate能够把任何一种迭代器(iterator)封装成惰性生成器(lazy generator)。这样的话每一次进行循环的时候只需要从iterator里面获取下一个值就可以了，并且会同时给出本轮循环的序列号，即生成器每次产生一对输出值。</p>
+<p>In [35]:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">flavor_list = [&quot;chocolate&quot;, &quot;vanilla&quot;, &quot;pecan&quot;, &quot;strawberry&quot;]</span><br><span class="line">it = enumerate(flavor_list)</span><br><span class="line"></span><br><span class="line">print(next(it))</span><br><span class="line">(0, &#x27;chocolate&#x27;)</span><br></pre></td></tr></table></figure>
+
+<p>In [36]:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(next(it))</span><br><span class="line">(1, &#x27;vanilla&#x27;)</span><br></pre></td></tr></table></figure>
+
+<p>In [37]:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(next(it))</span><br><span class="line">(2, &#x27;pecan&#x27;)</span><br></pre></td></tr></table></figure>
+
+<p>In [38]:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(next(it))</span><br><span class="line">(3, &#x27;strawberry&#x27;)</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Python3/" rel="tag"># Python3</a>
+              <a href="/tags/Effective-Python/" rel="tag"># Effective Python</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/11/15/%E9%A1%BD%E6%83%B3%E6%A6%82%E7%8E%87/" rel="prev" title="顽想概率">
+                  <i class="fa fa-chevron-left"></i> 顽想概率
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/11/26/C-%EF%BC%9A%E8%AF%AD%E6%B3%95%E7%AC%94%E8%AE%B0/" rel="next" title="C++：语法笔记">
+                  C++：语法笔记 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ye Jiu</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

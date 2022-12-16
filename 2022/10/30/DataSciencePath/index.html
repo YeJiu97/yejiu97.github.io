@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="关于“如何成为一位数据科学家”的个人总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DataSciencePath">
+<meta property="og:url" content="http://example.com/2022/10/30/DataSciencePath/index.html">
+<meta property="og:site_name" content="夜久">
+<meta property="og:description" content="关于“如何成为一位数据科学家”的个人总结">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030083635716.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030083709789.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030083951993.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030085431978.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030084527560.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030085057136.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030084851586.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030092640166.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030085809224.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030085849900.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030085943680.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030093335369.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030093459544.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030093604799.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030093551620.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030090218835.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030090441532.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030090507790.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030090604056.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030090711350.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030090803483.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030090905971.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030091014589.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030091035218.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030091107112.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030091316136.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030091341376.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030091412649.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030091511609.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030091557392.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030091657691.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221120091152773.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030091742497.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030091833865.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221120091001825.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030091923376.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030092142131.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030092246569.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030092342079.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030092454897.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030085205322.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030092832153.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030092842186.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030092906023.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030092913801.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030093008915.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030093751527.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030093910598.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030094029091.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030094109160.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221106143014704.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221106143111359.png">
+<meta property="og:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221106143216413.png">
+<meta property="article:published_time" content="2022-10-29T22:04:21.000Z">
+<meta property="article:modified_time" content="2022-11-19T22:41:54.643Z">
+<meta property="article:author" content="Ye Jiu">
+<meta property="article:tag" content="DataScience">
+<meta property="article:tag" content="数据科学">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/10/30/DataSciencePath/image-20221030083635716.png">
+
+
+<link rel="canonical" href="http://example.com/2022/10/30/DataSciencePath/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/10/30/DataSciencePath/","path":"2022/10/30/DataSciencePath/","title":"DataSciencePath"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>DataSciencePath | 夜久</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">夜久</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-about"><a href="/about" rel="section">About</a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section">Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories" rel="section">Categories</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E5%AE%B6"><span class="nav-number">1.</span> <span class="nav-text">什么是数据科学家</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80"><span class="nav-number">2.</span> <span class="nav-text">编程语言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0"><span class="nav-number">2.1.</span> <span class="nav-text">Python语言学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#R%E8%AF%AD%E8%A8%80"><span class="nav-number">2.2.</span> <span class="nav-text">R语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java"><span class="nav-number">2.3.</span> <span class="nav-text">Java</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL%E8%AF%AD%E8%A8%80"><span class="nav-number">2.4.</span> <span class="nav-text">SQL语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95"><span class="nav-number">2.5.</span> <span class="nav-text">数据结构与算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6"><span class="nav-number">3.</span> <span class="nav-text">数学</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%9A%E8%AF%86"><span class="nav-number">3.1.</span> <span class="nav-text">通识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AE%E7%A7%AF%E5%88%86"><span class="nav-number">3.2.</span> <span class="nav-text">微积分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0"><span class="nav-number">3.3.</span> <span class="nav-text">线性代数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1"><span class="nav-number">3.4.</span> <span class="nav-text">概率统计</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6"><span class="nav-number">4.</span> <span class="nav-text">数据科学</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A4%E7%9F%A5"><span class="nav-number">4.1.</span> <span class="nav-text">认知</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90"><span class="nav-number">4.2.</span> <span class="nav-text">数据分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0"><span class="nav-number">4.3.</span> <span class="nav-text">机器学习与深度学习</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%A7%E6%95%B0%E6%8D%AE"><span class="nav-number">5.</span> <span class="nav-text">大数据</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux"><span class="nav-number">5.1.</span> <span class="nav-text">Linux</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%A1%86%E6%9E%B6"><span class="nav-number">5.2.</span> <span class="nav-text">大数据框架</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Ye Jiu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/30/DataSciencePath/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Ye Jiu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="夜久">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="DataSciencePath | 夜久">
+      <meta itemprop="description" content="关于“如何成为一位数据科学家”的个人总结">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          DataSciencePath
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-10-30 08:34:21" itemprop="dateCreated datePublished" datetime="2022-10-30T08:34:21+10:30">2022-10-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-11-20 09:11:54" itemprop="dateModified" datetime="2022-11-20T09:11:54+10:30">2022-11-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/DataScience/" itemprop="url" rel="index"><span itemprop="name">DataScience</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">关于“如何成为一位数据科学家”的个人总结</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="什么是数据科学家"><a href="#什么是数据科学家" class="headerlink" title="什么是数据科学家"></a>什么是数据科学家</h1><p>Drew Conway 提出来的这个图（<a href="https://link.zhihu.com/?target=http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram">The Data Science Venn Diagram</a>）：</p>
+<img src="/2022/10/30/DataSciencePath/image-20221030083635716.png" alt="image-20221030083635716" style="zoom:67%;">
+
+
+
+<p>这是最新的提出来的图：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030083709789.png" alt="image-20221030083709789"></p>
+<p>Udacity则提供了一份学习手册：<a target="_blank" rel="noopener" href="https://www.udacity.com/blog/category/data-science/page/3">https://www.udacity.com/blog/category/data-science/page/3</a></p>
+<h1 id="编程语言"><a href="#编程语言" class="headerlink" title="编程语言"></a>编程语言</h1><p>对于成为一位数据科学家而言，不可避免的需要学习的语言是：Python和R。</p>
+<h2 id="Python语言学习"><a href="#Python语言学习" class="headerlink" title="Python语言学习"></a>Python语言学习</h2><p>Python语言推荐的书籍是：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030083951993.png" alt="image-20221030083951993"></p>
+<p>这本书的第一部分给出了关于Python语言的基础语法，可以阅读我发表在博客上的笔记：<a target="_blank" rel="noopener" href="https://yejiu97.github.io/2022/10/30/PythonSummary/">https://yejiu97.github.io/2022/10/30/PythonSummary/</a> 。</p>
+<p>书籍的第二部分则是三个项目，这三个项目中和数据科学相关的是第二个项目：“项目2 数据可视化”，推荐先学习这个项目，第一个项目“项目1 外星人入侵”可以在完成项目2的学习之后再学习，第三个项目是关于Django的项目，这个先不推荐新手进行学习。</p>
+<p>可以使用LintCode提供的Python语言的习题来测试自己关于语法的掌握程度：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030085431978.png" alt="image-20221030085431978"></p>
+<p>网址为：<a target="_blank" rel="noopener" href="https://www.lintcode.com/problem/?typeId=8">https://www.lintcode.com/problem/?typeId=8</a></p>
+<p>除了学习Python语言的基础的语法和初步的了解一些关于数据可视化的知识之后，推荐使用Udemy提供的Python语言的课程：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030084527560.png" alt="image-20221030084527560"></p>
+<p>网址：<a target="_blank" rel="noopener" href="https://www.udemy.com/course/100-days-of-code/">https://www.udemy.com/course/100-days-of-code/</a></p>
+<p>在这个课程里面，Angela花费了100天的时间从一些最基础的东西开始，然后循序递进的教导Python相关的知识和实现一些项目，这个课程有时候会打折，能够以一个较为便宜的价格购买到。</p>
+<p>等你能够跟下来和通过自己的努力实现课程中的代码，Python语言的语法和使用Python语言来进行项目的工程实现就掌握的差不多了，课程中也有一些关于数据分析的知识点。</p>
+<p>如果想要进一步的掌握Python语言，推荐阅读：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030085057136.png" alt="image-20221030085057136"></p>
+<p>这本书给出了一些关于Python语言代码的建议，没事的时候可以翻一下。</p>
+<h2 id="R语言"><a href="#R语言" class="headerlink" title="R语言"></a>R语言</h2><p>R语言推荐使用的书籍是：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030084851586.png" alt="image-20221030084851586"></p>
+<p>和：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030092640166.png" alt="image-20221030092640166"></p>
+<p>这本书实际上也是一本偏向于手册的书籍，可以先通读一下留下印象。</p>
+<h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><p>有许多大数据相关的框架都是使用Java语言来实现的，比如说：Hadoop，Hive和Spark等。</p>
+<p>所以推荐学习一下Java语言：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030085809224.png" alt="image-20221030085809224"></p>
+<p>视频课程的话，推荐使用：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030085849900.png" alt="image-20221030085849900"></p>
+<p>LintCode同样的也提供了Java语言的语法相关的习题：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030085943680.png" alt="image-20221030085943680"></p>
+<h2 id="SQL语言"><a href="#SQL语言" class="headerlink" title="SQL语言"></a>SQL语言</h2><p>SQL语言也是必须被掌握的。</p>
+<p>推荐的书籍为：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030093335369.png" alt="image-20221030093335369"></p>
+<p>以及：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030093459544.png" alt="image-20221030093459544"></p>
+<p>LintCode提供了数据库相关的习题：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030093604799.png" alt="image-20221030093604799"></p>
+<p>LeetCode提供了数据库相关的习题：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030093551620.png" alt="image-20221030093551620"></p>
+<h2 id="数据结构与算法"><a href="#数据结构与算法" class="headerlink" title="数据结构与算法"></a>数据结构与算法</h2><p>数据结构与算法是程序员必须掌握的技能，虽然作为以为数据科学家，你未必会频繁的使用到相关的知识。</p>
+<p>使用Python语言实现的书籍推荐：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030090218835.png" alt="image-20221030090218835"></p>
+<p>Bilibili上面有公开的视频：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030090441532.png" alt="image-20221030090441532"></p>
+<p>如果愿意付费的话，推荐使用Udemy的：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030090507790.png" alt="image-20221030090507790"></p>
+<p><a target="_blank" rel="noopener" href="https://www.udemy.com/course/data-structures-algorithms-python/">https://www.udemy.com/course/data-structures-algorithms-python/</a></p>
+<p>来进行入门学习。</p>
+<p>Java语言的算法的话，只推荐这一本书籍：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030090604056.png" alt="image-20221030090604056"></p>
+<h1 id="数学"><a href="#数学" class="headerlink" title="数学"></a>数学</h1><h2 id="通识"><a href="#通识" class="headerlink" title="通识"></a>通识</h2><p>关于数学推荐先阅读：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030090711350.png" alt="image-20221030090711350"></p>
+<p>和：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030090803483.png" alt="image-20221030090803483"></p>
+<p>两本通识书籍来了解一下数学的发展和数学的本质，而不是埋头背诵公式和进行计算。</p>
+<h2 id="微积分"><a href="#微积分" class="headerlink" title="微积分"></a>微积分</h2><p>微积分推荐阅读的书籍为：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030090905971.png" alt="image-20221030090905971"></p>
+<p>视频推荐使用麻省理工公开课：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030091014589.png" alt="image-20221030091014589"></p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030091035218.png" alt="image-20221030091035218"></p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030091107112.png" alt="image-20221030091107112"></p>
+<h2 id="线性代数"><a href="#线性代数" class="headerlink" title="线性代数"></a>线性代数</h2><p>线性代数还是推荐使用麻省理工公开课：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030091316136.png" alt="image-20221030091316136"></p>
+<p>以及配合课程的教材：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030091341376.png" alt="image-20221030091341376"></p>
+<p>在学习完上面的三个资源之后，推荐阅读：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030091412649.png" alt="image-20221030091412649"></p>
+<h2 id="概率统计"><a href="#概率统计" class="headerlink" title="概率统计"></a>概率统计</h2><p>统计学推荐先观看一个速成课：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030091511609.png" alt="image-20221030091511609"></p>
+<p>然后可以阅读这本书：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030091557392.png" alt="image-20221030091557392"></p>
+<p>和使用这本教材：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030091657691.png" alt="image-20221030091657691"></p>
+<p>还可以看这本：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221120091152773.png" alt="image-20221120091152773"></p>
+<p>概率论推荐的课程是Cousera上的一个公开课：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030091742497.png" alt="image-20221030091742497"></p>
+<p>学完这两个公开课之后，推荐的教材是：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030091833865.png" alt="image-20221030091833865"></p>
+<p>以及：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221120091001825.png" alt="image-20221120091001825"></p>
+<p>普林斯顿也有一本概率论相关的书籍：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030091923376.png" alt="image-20221030091923376"></p>
+<h1 id="数据科学"><a href="#数据科学" class="headerlink" title="数据科学"></a>数据科学</h1><h2 id="认知"><a href="#认知" class="headerlink" title="认知"></a>认知</h2><p>推荐的书籍为：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030092142131.png" alt="image-20221030092142131"></p>
+<p>这本书可以让读者大体上了解数据分析是做什么的。</p>
+<h2 id="数据分析"><a href="#数据分析" class="headerlink" title="数据分析"></a>数据分析</h2><p>Python语言的数据分析推荐书籍为：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030092246569.png" alt="image-20221030092246569"></p>
+<p>以及使用Coursera提供的公开课：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030092342079.png" alt="image-20221030092342079"></p>
+<p>R语言的数据分析除了之前相关的书籍之外，推荐的书籍为：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030092454897.png" alt="image-20221030092454897"></p>
+<p>关于如何使用R语言来进行可视化，推荐阅读的书籍是：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030085205322.png" alt="image-20221030085205322"></p>
+<h2 id="机器学习与深度学习"><a href="#机器学习与深度学习" class="headerlink" title="机器学习与深度学习"></a>机器学习与深度学习</h2><p>这是这些年比较火的领域，也是作为一位数据科学家必备的技能。</p>
+<p>机器学习推荐的是李沐和吴恩达的课程：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030092832153.png" alt="image-20221030092832153"></p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030092842186.png" alt="image-20221030092842186"></p>
+<p>深度学习一样是推荐李沐和吴恩达的课程：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030092906023.png" alt="image-20221030092906023"></p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030092913801.png" alt="image-20221030092913801"></p>
+<p>推荐的书籍的话是：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030093008915.png" alt="image-20221030093008915"></p>
+<h1 id="大数据"><a href="#大数据" class="headerlink" title="大数据"></a>大数据</h1><h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><p>Linux推荐的指令书籍为：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030093751527.png" alt="image-20221030093751527"></p>
+<p>Udemy提供的书籍为：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030093910598.png" alt="image-20221030093910598"></p>
+<h2 id="大数据框架"><a href="#大数据框架" class="headerlink" title="大数据框架"></a>大数据框架</h2><p>Hadoop推荐的是Bilibili上面的课程：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030094029091.png" alt="image-20221030094029091"></p>
+<p>Spark同样推荐的是Bilibili上面的课程：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221030094109160.png" alt="image-20221030094109160"></p>
+<p>Hive的课程则是：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221106143014704.png" alt="image-20221106143014704"></p>
+<p>Udemy上面也有一些课程：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221106143111359.png" alt="image-20221106143111359"></p>
+<p>或者：</p>
+<p><img src="/2022/10/30/DataSciencePath/image-20221106143216413.png" alt="image-20221106143216413"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/DataScience/" rel="tag"># DataScience</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/" rel="tag"># 数据科学</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/10/30/PythonSummary/" rel="prev" title="PythonSummary">
+                  <i class="fa fa-chevron-left"></i> PythonSummary
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/10/30/Python%E7%BC%96%E7%A8%8B%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="next" title="Python编程：数据可视化">
+                  Python编程：数据可视化 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ye Jiu</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="《图解算法》相关章节">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构与算法：快速排序">
+<meta property="og:url" content="http://example.com/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/index.html">
+<meta property="og:site_name" content="夜久">
+<meta property="og:description" content="《图解算法》相关章节">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/image-60.png">
+<meta property="og:image" content="http://example.com/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/image-61.png">
+<meta property="og:image" content="http://example.com/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/image-63.png">
+<meta property="og:image" content="http://example.com/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/image-64.png">
+<meta property="og:image" content="http://example.com/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/image-65.png">
+<meta property="og:image" content="http://example.com/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/image-62.png">
+<meta property="og:image" content="blob:https://onewayoneheart.xyz/97d2473f-b7e5-40ad-a2ce-843d0e34e832">
+<meta property="og:image" content="http://example.com/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/image-66.png">
+<meta property="og:image" content="http://example.com/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/image-67.png">
+<meta property="og:image" content="blob:https://onewayoneheart.xyz/aeea977c-499a-43b8-bff0-fb153f3a4489">
+<meta property="og:image" content="blob:https://onewayoneheart.xyz/e025463b-cd83-4a24-937a-015119b7f1e3">
+<meta property="og:image" content="blob:https://onewayoneheart.xyz/84dffc5e-7d09-455c-b3ec-8ba1ad2ac274">
+<meta property="og:image" content="http://example.com/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/image-68.png">
+<meta property="og:image" content="http://example.com/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/image-70.png">
+<meta property="og:image" content="http://example.com/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/image-69.png">
+<meta property="og:image" content="http://example.com/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/image-71.png">
+<meta property="article:published_time" content="2022-11-02T03:10:22.000Z">
+<meta property="article:modified_time" content="2022-11-02T03:10:50.857Z">
+<meta property="article:author" content="Ye Jiu">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="数据结构与算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/image-60.png">
+
+
+<link rel="canonical" href="http://example.com/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/","path":"2022/11/02/数据结构与算法：快速排序/","title":"数据结构与算法：快速排序"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>数据结构与算法：快速排序 | 夜久</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">夜久</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-about"><a href="/about" rel="section">About</a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section">Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories" rel="section">Categories</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E8%80%8C%E6%B2%BB%E4%B9%8B"><span class="nav-number">1.</span> <span class="nav-text">分而治之</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F"><span class="nav-number">2.</span> <span class="nav-text">快速排序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%A7O%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">大O表示法</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Ye Jiu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Ye Jiu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="夜久">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="数据结构与算法：快速排序 | 夜久">
+      <meta itemprop="description" content="《图解算法》相关章节">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          数据结构与算法：快速排序
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-11-02 13:40:22 / Modified: 13:40:50" itemprop="dateCreated datePublished" datetime="2022-11-02T13:40:22+10:30">2022-11-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">《图解算法》相关章节</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="分而治之"><a href="#分而治之" class="headerlink" title="分而治之"></a>分而治之</h1><p>假设你是农场主，有一小块土地。</p>
+<p><img src="/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/image-60.png" alt="img"></p>
+<p>你要将这块地均匀地分成方块，且分出的方块要尽可能大。显然，下面的分法都不符合要求。</p>
+<p><img src="/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/image-61.png" alt="img"></p>
+<p>使用D&amp;C策略：</p>
+<ol>
+<li>找出基线条件，这种条件必须尽可能简单</li>
+<li>不断将问题分解（或者说缩小规模），直到符合基线条件</li>
+</ol>
+<p><img src="/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/image-63.png" alt="img"></p>
+<p>如果一边长25 m，另一边长50 m，那么可使用的最大方块为 25 m×25 m。</p>
+<p>现在需要找出递归条件。每次递归调用都必须缩小问题的规模。</p>
+<p><img src="/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/image-64.png" alt="img"></p>
+<p>你可以从这块地中划出两个640 m×640 m的方块，同时余下一小块地。</p>
+<p>现在是顿悟时刻：何不对余下的那一小块地使用相同的算法呢？</p>
+<p><img src="/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/image-65.png" alt="img"></p>
+<p>最初要划分的土地尺寸为1680 m×640 m，而现在要划分的土地更小，为640 m×400 m。适用于这小块地的最大方块，也是适用于整块地的最大方块。换言之，你将均匀划分1680 m×640 m土地的问题，简化成了均匀划分640 m×400 m土地的问题！</p>
+<p>我们重新申明一下D&amp;C的工作原理：</p>
+<ol>
+<li>找出简单的基线条件</li>
+<li>确定如何缩小问题的规模，使其符合基线条件</li>
+</ol>
+<p>我们可以看一下这个数组：</p>
+<p><img src="/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/image-62.png" alt="img"></p>
+<p>如果我们需要将这些数字相加，我们可以使用循环来完成：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 定义一个函数</span><br><span class="line">def sum(arr):</span><br><span class="line">    total = 0</span><br><span class="line">    for x in arr:</span><br><span class="line">        total += x</span><br><span class="line">    return total</span><br><span class="line"></span><br><span class="line"># 打印返回的结果</span><br><span class="line">print(sum([1, 2, 3, 4]))</span><br><span class="line">10</span><br></pre></td></tr></table></figure>
+
+
+
+<p>但是我们该如何使用递归来完成这个任务呢？</p>
+<p>第一步：找出基线条件。 <img src="blob:https://onewayoneheart.xyz/97d2473f-b7e5-40ad-a2ce-843d0e34e832" alt="image.png"></p>
+<p>第二步：每次递归调用都必须离空数组更近一步。</p>
+<p><img src="/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/image-66.png" alt="img"></p>
+<p>与</p>
+<p><img src="/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/image-67.png" alt="img"></p>
+<p>这两者是等效的。</p>
+<p>这两个版本的结果都为12，但在第二个版本中，给函数sum传递的数组更短。换言之，这缩 小了问题的规模！</p>
+<p>此时，函数sum的工作原理类似于下图： <img src="blob:https://onewayoneheart.xyz/aeea977c-499a-43b8-bff0-fb153f3a4489" alt="image-4.png"></p>
+<p>这个函数的运行过程如下： <img src="blob:https://onewayoneheart.xyz/e025463b-cd83-4a24-937a-015119b7f1e3" alt="image-5.png"></p>
+<p>别忘了，递归记录了状态： <img src="blob:https://onewayoneheart.xyz/84dffc5e-7d09-455c-b3ec-8ba1ad2ac274" alt="image-6.png"></p>
+<h1 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h1><p>如果是空数组，或者只包含一个元素，那么我们可以直接返回数组</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def quicksort(array):</span><br><span class="line">    if len(array) &lt; 2:</span><br><span class="line">        return array</span><br></pre></td></tr></table></figure>
+
+<p>我们来考虑一下三个元素的情况：</p>
+<p><img src="/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/image-68.png" alt="img"></p>
+<p>在这里，我们将33作为基准值：</p>
+<p>接下来，找出比基准值小的元素以及比基准值大的元素。</p>
+<p><img src="/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/image-70.png" alt="img"></p>
+<p>这被称为分区（partitioning）。</p>
+<p>这里只是进行了分区，得到的两个子数组是无序的。但如果这两个数组是有序的，对整个数 组进行排序将非常容易。</p>
+<p><img src="/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/image-69.png" alt="img"></p>
+<p>如果子数组是有序的，就可以像下面这样合并得到一个有序的数组：左边的数组 + 基准值 + 右边的数组。在这里，就是[10, 15] + [33] + []，结果为有序数组[10, 15, 33]。</p>
+<p>对于包含两个元素的数组（左边的子数组）以及空数组（右边的子数组），快速排序知道如何将它们排序，因此只要对这两个子数组进行快速排序，再合并结果，就能得到一个有序数组！</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(quicksort([15, 10]) + [33] + quicksort([]))</span><br></pre></td></tr></table></figure>
+
+<p>结果为：[10, 15, 33]</p>
+<p>不管将哪个元素用作基准值，这都管用。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">def quicksort(array):</span><br><span class="line">    if len(array) &lt; 2:</span><br><span class="line">        return array</span><br><span class="line">    else:</span><br><span class="line">        pivot = array[0]  # 基准条件，为空，或者只包含一个元素的数组是有序的</span><br><span class="line">        less = [i for i in array[1:] if i&lt;= pivot] # 有所有小于基准值的元素组成的子数组</span><br><span class="line">        greater = [i for i in array[1:] if i &gt; pivot]  # 由所有大于基准值的元素组成的子数组</span><br><span class="line">        </span><br><span class="line">        return quicksort(less) + [pivot] + quicksort(greater)</span><br><span class="line"></span><br><span class="line">print(quicksort([10, 15, 11, 23]))</span><br><span class="line">[10, 11, 15, 23]</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="大O表示法"><a href="#大O表示法" class="headerlink" title="大O表示法"></a>大O表示法</h1><p>以下是常见的大O运行时间：</p>
+<p><img src="/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/image-71.png" alt="img"></p>
+<p>快速排序的独特之处在于，其速度取决于选择的基准值。快速排序的情况比较棘手，在最糟情况下，其运行时间为O(n^2)。</p>
+<p>但这是最糟情况。在平均情况下，快速排序的运行时间为O(n log n)。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" rel="tag"># 数据结构与算法</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9A%E9%80%92%E5%BD%92/" rel="prev" title="数据结构与算法：递归">
+                  <i class="fa fa-chevron-left"></i> 数据结构与算法：递归
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/11/02/jupyter-notebook-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" rel="next" title="jupyter notebook 使用方法">
+                  jupyter notebook 使用方法 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ye Jiu</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
