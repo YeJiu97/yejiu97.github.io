@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="linux,linux command," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Linux知识点汇总">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux知识点">
+<meta property="og:url" content="http://example.com/2024/03/07/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Linux知识点汇总">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174048864.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174103838.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174114763.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174128940.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174151857.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174204401.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174211907.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174223492.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20230108120538097.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174256713.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174323435.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174336227.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174418414.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174425244.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174500066.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174510029.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174521635.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174528520.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174534471.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174553157.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174603486.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174650027.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174700400.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174710508.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174735619.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174745929.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174756346.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174807948.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174822732.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174834633.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174851621.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174914976.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174926831.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174959179.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175011091.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175018073.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175029405.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175035541.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175055084.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175102961.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175111328.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175120664.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175138219.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175151634.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175159562.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175207039.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175226460.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175250157.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175302273.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175316225.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175326053.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175337828.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175355762.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175417833.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175432490.png">
+<meta property="og:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175445454.png">
+<meta property="article:published_time" content="2024-03-07T13:45:34.000Z">
+<meta property="article:modified_time" content="2024-03-07T11:17:04.627Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="linux command">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174048864.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2024/03/07/Linux知识点/"/>
+
+
+
+
+
+  <title>Linux知识点 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/07/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux知识点</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2024-03-07T21:45:34+08:00">
+                2024-03-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  Linux知识点汇总
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>如下图所示为Linux的系统家族树：[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174048864.png" alt="image-20221222174048864">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222174048864.png)</p>
+<p>一个简单的指令：du。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ du</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+
+
+
+<p>Unix的后代：</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174103838.png" alt="image-20221222174103838">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222174103838.png)</p>
+<p>Linux的kernel：</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174114763.png" alt="image-20221222174114763">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222174114763.png)</p>
+<p>什么是Kernel：</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174128940.png" alt="image-20221222174128940">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222174128940.png)</p>
+<h1 id="Command-Basics"><a href="#Command-Basics" class="headerlink" title="Command Basics"></a>Command Basics</h1><h2 id="Open-Terminal"><a href="#Open-Terminal" class="headerlink" title="Open Terminal"></a>Open Terminal</h2><p>任何一个系统都应该提供了类似的一个终端：</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174151857.png" alt="image-20221222174151857">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222174151857.png)</p>
+<p>可以按Ctrl+ALT+T来打开。</p>
+<h2 id="Some-Commands"><a href="#Some-Commands" class="headerlink" title="Some Commands"></a>Some Commands</h2><p>首先使用的是date指令，这个指令会返回系统的时间：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ date</span><br><span class="line">Mon Dec 19 17:46:48 ACDT 2022</span><br></pre></td></tr></table></figure>
+
+
+
+<p>接着我们可以使用clear来清楚已经打印了的东西：</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174204401.png" alt="image-20221222174204401">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222174204401.png)</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174211907.png" alt="image-20221222174211907">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222174211907.png)</p>
+<p>需要注意的地方在于date和Date是不同的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ date</span><br><span class="line">Mon Dec 19 17:48:44 ACDT 2022</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ Date</span><br><span class="line">Command &#x27;Date&#x27; not found, did you mean:</span><br><span class="line">  command &#x27;date&#x27; from deb coreutils (8.32-4.1ubuntu1)</span><br><span class="line">  command &#x27;late&#x27; from deb late (0.1.0-14)</span><br><span class="line">  command &#x27;kate&#x27; from deb kate (4:21.12.3-0ubuntu1)</span><br><span class="line">Try: sudo apt install &lt;deb name&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>可以发现没有Date这个指令，linux会推荐一些相关联的指令。</p>
+<p>另一个简单的指令是ncal：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ncal</span><br><span class="line">    December 2022</span><br><span class="line">Su     4 11 18 25</span><br><span class="line">Mo     5 12 19 26</span><br><span class="line">Tu     6 13 20 27</span><br><span class="line">We     7 14 21 28</span><br><span class="line">Th  1  8 15 22 29</span><br><span class="line">Fr  2  9 16 23 30</span><br><span class="line">Sa  3 10 17 24 31</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Command-Structure"><a href="#Command-Structure" class="headerlink" title="Command Structure"></a>Command Structure</h2><p>指令的结构如下所示：</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174223492.png" alt="image-20221222174223492">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222174223492.png)</p>
+<p>以echo为例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ echo &quot;Hello World&quot;</span><br><span class="line">Hello World</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ echo hello world</span><br><span class="line">hello world</span><br></pre></td></tr></table></figure>
+
+
+
+<p>尝试一下ncal：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ncal 2021</span><br><span class="line">                                  2021</span><br><span class="line">    January           February          March             April</span><br><span class="line">Su     3 10 17 24 31     7 14 21 28        7 14 21 28        4 11 18 25</span><br><span class="line">Mo     4 11 18 25     1  8 15 22        1  8 15 22 29        5 12 19 26</span><br><span class="line">Tu     5 12 19 26     2  9 16 23        2  9 16 23 30        6 13 20 27</span><br><span class="line">We     6 13 20 27     3 10 17 24        3 10 17 24 31        7 14 21 28</span><br><span class="line">Th     7 14 21 28     4 11 18 25        4 11 18 25        1  8 15 22 29</span><br><span class="line">Fr  1  8 15 22 29     5 12 19 26        5 12 19 26        2  9 16 23 30</span><br><span class="line">Sa  2  9 16 23 30     6 13 20 27        6 13 20 27        3 10 17 24</span><br><span class="line"></span><br><span class="line">    May               June              July              August</span><br><span class="line">Su     2  9 16 23 30     6 13 20 27        4 11 18 25     1  8 15 22 29</span><br><span class="line">Mo     3 10 17 24 31     7 14 21 28        5 12 19 26     2  9 16 23 30</span><br><span class="line">Tu     4 11 18 25     1  8 15 22 29        6 13 20 27     3 10 17 24 31</span><br><span class="line">We     5 12 19 26     2  9 16 23 30        7 14 21 28     4 11 18 25</span><br><span class="line">Th     6 13 20 27     3 10 17 24        1  8 15 22 29     5 12 19 26</span><br><span class="line">Fr     7 14 21 28     4 11 18 25        2  9 16 23 30     6 13 20 27</span><br><span class="line">Sa  1  8 15 22 29     5 12 19 26        3 10 17 24 31     7 14 21 28</span><br><span class="line"></span><br><span class="line">    September         October           November          December</span><br><span class="line">Su     5 12 19 26        3 10 17 24 31     7 14 21 28        5 12 19 26</span><br><span class="line">Mo     6 13 20 27        4 11 18 25     1  8 15 22 29        6 13 20 27</span><br><span class="line">Tu     7 14 21 28        5 12 19 26     2  9 16 23 30        7 14 21 28</span><br><span class="line">We  1  8 15 22 29        6 13 20 27     3 10 17 24        1  8 15 22 29</span><br><span class="line">Th  2  9 16 23 30        7 14 21 28     4 11 18 25        2  9 16 23 30</span><br><span class="line">Fr  3 10 17 24        1  8 15 22 29     5 12 19 26        3 10 17 24 31</span><br><span class="line">Sa  4 11 18 25        2  9 16 23 30     6 13 20 27        4 11 18 25</span><br></pre></td></tr></table></figure>
+
+
+
+<p>或者我们增加一个参数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ncal 2024</span><br><span class="line">                                  2024</span><br><span class="line">    January           February          March             April</span><br><span class="line">Su     7 14 21 28        4 11 18 25        3 10 17 24 31     7 14 21 28</span><br><span class="line">Mo  1  8 15 22 29        5 12 19 26        4 11 18 25     1  8 15 22 29</span><br><span class="line">Tu  2  9 16 23 30        6 13 20 27        5 12 19 26     2  9 16 23 30</span><br><span class="line">We  3 10 17 24 31        7 14 21 28        6 13 20 27     3 10 17 24</span><br><span class="line">Th  4 11 18 25        1  8 15 22 29        7 14 21 28     4 11 18 25</span><br><span class="line">Fr  5 12 19 26        2  9 16 23        1  8 15 22 29     5 12 19 26</span><br><span class="line">Sa  6 13 20 27        3 10 17 24        2  9 16 23 30     6 13 20 27</span><br><span class="line"></span><br><span class="line">    May               June              July              August</span><br><span class="line">Su     5 12 19 26        2  9 16 23 30     7 14 21 28        4 11 18 25</span><br><span class="line">Mo     6 13 20 27        3 10 17 24     1  8 15 22 29        5 12 19 26</span><br><span class="line">Tu     7 14 21 28        4 11 18 25     2  9 16 23 30        6 13 20 27</span><br><span class="line">We  1  8 15 22 29        5 12 19 26     3 10 17 24 31        7 14 21 28</span><br><span class="line">Th  2  9 16 23 30        6 13 20 27     4 11 18 25        1  8 15 22 29</span><br><span class="line">Fr  3 10 17 24 31        7 14 21 28     5 12 19 26        2  9 16 23 30</span><br><span class="line">Sa  4 11 18 25        1  8 15 22 29     6 13 20 27        3 10 17 24 31</span><br><span class="line"></span><br><span class="line">    September         October           November          December</span><br><span class="line">Su  1  8 15 22 29        6 13 20 27        3 10 17 24     1  8 15 22 29</span><br><span class="line">Mo  2  9 16 23 30        7 14 21 28        4 11 18 25     2  9 16 23 30</span><br><span class="line">Tu  3 10 17 24        1  8 15 22 29        5 12 19 26     3 10 17 24 31</span><br><span class="line">We  4 11 18 25        2  9 16 23 30        6 13 20 27     4 11 18 25</span><br><span class="line">Th  5 12 19 26        3 10 17 24 31        7 14 21 28     5 12 19 26</span><br><span class="line">Fr  6 13 20 27        4 11 18 25        1  8 15 22 29     6 13 20 27</span><br><span class="line">Sa  7 14 21 28        5 12 19 26        2  9 16 23 30     7 14 21 28</span><br><span class="line"></span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ncal April 2024</span><br><span class="line">    April 2024</span><br><span class="line">Su     7 14 21 28</span><br><span class="line">Mo  1  8 15 22 29</span><br><span class="line">Tu  2  9 16 23 30</span><br><span class="line">We  3 10 17 24</span><br><span class="line">Th  4 11 18 25</span><br><span class="line">Fr  5 12 19 26</span><br><span class="line">Sa  6 13 20 27</span><br></pre></td></tr></table></figure>
+
+
+
+<p>可以发现我们可以指定某一年的某一个月。</p>
+<p>有一个名为colours的txt文件：</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20230108120538097.png" alt="image-20230108120538097">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20230108120538097.png)</p>
+<p>接着我们来使用sort指令，并且给出这个文件名作为参数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL/03$ ls</span><br><span class="line">colours.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL/03$ sort colours.txt</span><br><span class="line">blue</span><br><span class="line">green</span><br><span class="line">indigo</span><br><span class="line">orange</span><br><span class="line">red</span><br><span class="line">violet</span><br><span class="line">yellow</span><br></pre></td></tr></table></figure>
+
+
+
+<p>接着我们来使用rm来移除文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL/03$ ls</span><br><span class="line">colours.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL/03$ rm colours.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL/03$ ls</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL/03$</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Getting-Help"><a href="#Getting-Help" class="headerlink" title="Getting Help"></a>Getting Help</h1><h2 id="Get-Help"><a href="#Get-Help" class="headerlink" title="Get Help"></a>Get Help</h2><p>如果我不确定某一个指令是怎么用的，可以使用man指令来调查：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">CAL(1)                                       BSD General Commands Manual                                       CAL(1)</span><br><span class="line"></span><br><span class="line">NAME</span><br><span class="line">     cal, ncal — displays a calendar and the date of Easter</span><br><span class="line"></span><br><span class="line">SYNOPSIS</span><br><span class="line">     cal [-3hjy] [-A number] [-B number] [[month] year]</span><br><span class="line">     cal [-3hj] [-A number] [-B number] -m month [year]</span><br><span class="line">     ncal [-3bhjJpwySM] [-A number] [-B number] [-W number] [-s country_code] [[month] year]</span><br><span class="line">     ncal [-Jeo] [-A number] [-B number] [year]</span><br><span class="line">     ncal [-CN] [-H yyyy-mm-dd] [-d yyyy-mm]</span><br><span class="line"></span><br><span class="line">DESCRIPTION</span><br><span class="line">     The cal utility displays a simple calendar in traditional format and ncal offers an alternative layout, more op‐</span><br><span class="line">     tions and the date of Easter.  The new format is a little cramped but it makes a year fit on a 25x80 terminal.</span><br><span class="line">     If arguments are not specified, the current month is displayed.</span><br><span class="line"></span><br><span class="line">     The options are as follows:</span><br><span class="line"></span><br><span class="line">     -h      Turns off highlighting of today.</span><br><span class="line"></span><br><span class="line">     -J      Display Julian Calendar, if combined with the -o option, display date of Orthodox Easter according to</span><br><span class="line">             the Julian Calendar.</span><br><span class="line"></span><br><span class="line">     -e      Display date of Easter (for western churches).</span><br><span class="line"></span><br><span class="line">     -j      Display Julian days (days one-based, numbered from January 1).</span><br><span class="line"></span><br><span class="line">     -m month</span><br></pre></td></tr></table></figure>
+
+
+
+<p>这个是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">man ncal</span><br></pre></td></tr></table></figure>
+
+
+
+<p>的结果。</p>
+<p>同样的，我们可以查看date之类的结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">DATE(1)                                             User Commands                                             DATE(1)</span><br><span class="line"></span><br><span class="line">NAME</span><br><span class="line">       date - print or set the system date and time</span><br><span class="line"></span><br><span class="line">SYNOPSIS</span><br><span class="line">       date [OPTION]... [+FORMAT]</span><br><span class="line">       date [-u|--utc|--universal] [MMDDhhmm[[CC]YY][.ss]]</span><br><span class="line"></span><br><span class="line">DESCRIPTION</span><br><span class="line">       Display the current time in the given FORMAT, or set the system date.</span><br><span class="line"></span><br><span class="line">       Mandatory arguments to long options are mandatory for short options too.</span><br><span class="line"></span><br><span class="line">       -d, --date=STRING</span><br><span class="line">              display time described by STRING, not &#x27;now&#x27;</span><br><span class="line"></span><br><span class="line">       --debug</span><br><span class="line">              annotate the parsed date, and warn about questionable usage to stderr</span><br><span class="line"></span><br><span class="line">       -f, --file=DATEFILE</span><br><span class="line">              like --date; once for each line of DATEFILE</span><br><span class="line"></span><br><span class="line">       -I[FMT], --iso-8601[=FMT]</span><br><span class="line">              output date/time in ISO 8601 format.  FMT=&#x27;date&#x27; for date only (the default), &#x27;hours&#x27;, &#x27;minutes&#x27;, &#x27;sec‐</span><br><span class="line">              onds&#x27;, or &#x27;ns&#x27; for date and time to the indicated precision.  Example: 2006-08-14T02:34:56-06:00</span><br><span class="line"></span><br><span class="line">       -R, --rfc-email</span><br><span class="line">              output date and time in RFC 5322 format.  Example: Mon, 14 Aug 2006 02:34:56 -0600</span><br></pre></td></tr></table></figure>
+
+
+
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174256713.png" alt="image-20221222174256713">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222174256713.png)</p>
+<p>我们可以使用一下给出来的提示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL/03$ ncal -d 1969-08</span><br><span class="line">    August 1969</span><br><span class="line">Su     3 10 17 24 31</span><br><span class="line">Mo     4 11 18 25</span><br><span class="line">Tu     5 12 19 26</span><br><span class="line">We     6 13 20 27</span><br><span class="line">Th     7 14 21 28</span><br><span class="line">Fr  1  8 15 22 29</span><br><span class="line">Sa  2  9 16 23 30</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="type-和-which"><a href="#type-和-which" class="headerlink" title="type 和 which"></a>type 和 which</h2><p>使用type来查看一下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL/03$ type clear</span><br><span class="line">clear is hashed (/usr/bin/clear)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>usr之下的bin中，bin是binary的缩写，这意味着clear是可执行文件。</p>
+<p>接着是查看一下cd：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL/03$ type cd</span><br><span class="line">cd is a shell builtin</span><br></pre></td></tr></table></figure>
+
+
+
+<p>从结果来看，cd不是一个binary可执行文件，而是一个shell函数。</p>
+<p>which的逻辑和type是类似的。</p>
+<h2 id="help指令"><a href="#help指令" class="headerlink" title="help指令"></a>help指令</h2><p>我们可以测试一下cd：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL/03$ help cd</span><br><span class="line">cd: cd [-L|[-P [-e]] [-@]] [dir]</span><br><span class="line">    Change the shell working directory.</span><br><span class="line"></span><br><span class="line">    Change the current directory to DIR.  The default DIR is the value of the</span><br><span class="line">    HOME shell variable.</span><br><span class="line"></span><br><span class="line">    The variable CDPATH defines the search path for the directory containing</span><br><span class="line">    DIR.  Alternative directory names in CDPATH are separated by a colon (:).</span><br><span class="line">    A null directory name is the same as the current directory.  If DIR begins</span><br><span class="line">    with a slash (/), then CDPATH is not used.</span><br><span class="line"></span><br><span class="line">    If the directory is not found, and the shell option `cdable_vars&#x27; is set,</span><br><span class="line">    the word is assumed to be  a variable name.  If that variable has a value,</span><br><span class="line">    its value is used for DIR.</span><br><span class="line"></span><br><span class="line">    Options:</span><br><span class="line">      -L        force symbolic links to be followed: resolve symbolic</span><br><span class="line">                links in DIR after processing instances of `..&#x27;</span><br><span class="line">      -P        use the physical directory structure without following</span><br><span class="line">                symbolic links: resolve symbolic links in DIR before</span><br><span class="line">                processing instances of `..&#x27;</span><br><span class="line">      -e        if the -P option is supplied, and the current working</span><br><span class="line">                directory cannot be determined successfully, exit with</span><br><span class="line">                a non-zero status</span><br><span class="line">      -@        on systems that support it, present a file with extended</span><br><span class="line">                attributes as a directory containing the file attributes</span><br><span class="line"></span><br><span class="line">    The default is to follow symbolic links, as if `-L&#x27; were specified.</span><br><span class="line">    `..&#x27; is processed by removing the immediately previous pathname component</span><br><span class="line">    back to a slash or the beginning of DIR.</span><br><span class="line"></span><br><span class="line">    Exit Status:</span><br><span class="line">    Returns 0 if the directory is changed, and if $PWD is set successfully when</span><br><span class="line">    -P is used; non-zero otherwise.</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>如果要知道自己是谁，或者说这个账户是谁，可以使用whoami：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL/03$ whoami</span><br><span class="line">yejiu97</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Navigation"><a href="#Navigation" class="headerlink" title="Navigation"></a>Navigation</h1><p>如下图所示为文件结构：</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174323435.png" alt="image-20221222174323435">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222174323435.png)</p>
+<p>我们可以使用pwd来查看当前的文件的路径：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ pwd</span><br><span class="line">/mnt/c/Users/yinia/Desktop/WSL</span><br></pre></td></tr></table></figure>
+
+
+
+<p>这个结果是因为我现在使用的是windows subsystem linux。</p>
+<p>ls可以罗列出当前的目录之下的文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ touch hello.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">03  hello.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<p>ls的可选项如下所示：</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174336227.png" alt="image-20221222174336227">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222174336227.png)</p>
+<p>运行如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">03  hello.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls -l</span><br><span class="line">total 0</span><br><span class="line">drwxrwxrwx 1 yejiu97 yejiu97 4096 Dec 19 17:58 03</span><br><span class="line">-rwxrwxrwx 1 yejiu97 yejiu97    0 Dec 19 18:34 hello.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls -a</span><br><span class="line">.  ..  03  hello.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls -la</span><br><span class="line">total 0</span><br><span class="line">drwxrwxrwx 1 yejiu97 yejiu97 4096 Dec 19 18:34 .</span><br><span class="line">drwxrwxrwx 1 yejiu97 yejiu97 4096 Dec 19 14:55 ..</span><br><span class="line">drwxrwxrwx 1 yejiu97 yejiu97 4096 Dec 19 17:58 03</span><br><span class="line">-rwxrwxrwx 1 yejiu97 yejiu97    0 Dec 19 18:34 hello.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="cd"><a href="#cd" class="headerlink" title="cd"></a>cd</h2><p>cd为change directory的缩写：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">03  hello.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ cd 03</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL/03$ ls</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL/03$</span><br></pre></td></tr></table></figure>
+
+
+
+<p>我们可以使用cd..来回到上一层的目录：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">03  hello.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ cd 03</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL/03$ ls</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL/03$ cd ..</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">03  hello.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Creating-files-folders"><a href="#Creating-files-folders" class="headerlink" title="Creating files &amp; folders"></a>Creating files &amp; folders</h1><h2 id="touch-和-mkdir"><a href="#touch-和-mkdir" class="headerlink" title="touch 和 mkdir"></a>touch 和 mkdir</h2><p>touch指令用来创建文件，而midir用来创建文件夹：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">yinia@DESKTOP-S9ODFEQ MINGW64 ~/Desktop/WSL</span><br><span class="line">$ ls</span><br><span class="line">03/  hello.txt</span><br><span class="line"></span><br><span class="line">yinia@DESKTOP-S9ODFEQ MINGW64 ~/Desktop/WSL</span><br><span class="line">$ touch sayHi.txt</span><br><span class="line"></span><br><span class="line">yinia@DESKTOP-S9ODFEQ MINGW64 ~/Desktop/WSL</span><br><span class="line">$ ls</span><br><span class="line">03/  hello.txt  sayHi.txt</span><br><span class="line"></span><br><span class="line">yinia@DESKTOP-S9ODFEQ MINGW64 ~/Desktop/WSL</span><br><span class="line">$ mkdir 04</span><br><span class="line"></span><br><span class="line">yinia@DESKTOP-S9ODFEQ MINGW64 ~/Desktop/WSL</span><br><span class="line">$ ls</span><br><span class="line">03/  04/  hello.txt  sayHi.txt</span><br><span class="line"></span><br><span class="line">yinia@DESKTOP-S9ODFEQ MINGW64 ~/Desktop/WSL</span><br><span class="line">$</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="file指令"><a href="#file指令" class="headerlink" title="file指令"></a>file指令</h2><p>file指令如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">03  04  hello.txt  sayHi.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ file hello.txt</span><br><span class="line">hello.txt: empty</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Nano"><a href="#Nano" class="headerlink" title="Nano"></a>Nano</h1><p>Nano可以用来修改文件中的内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ cat hello.txt</span><br><span class="line">Hello Worldyejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ nano</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ nano hello.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ cat hello.txt</span><br><span class="line">Hello World</span><br><span class="line">Say Hi~</span><br></pre></td></tr></table></figure>
+
+
+
+<p>我们可以使用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano +LineNumber File</span><br></pre></td></tr></table></figure>
+
+
+
+<p>用来打开指定的文件的指定行。</p>
+<p>使用Ctrl+O可以用来存储我们的内容，如果不需要修改文件的名称的话，直接enter就可以了。</p>
+<p>其他的操作如下所示：</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174418414.png" alt="image-20221222174418414">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222174418414.png)</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174425244.png" alt="image-20221222174425244">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222174425244.png)</p>
+<h1 id="Deleting-Copying-Moving"><a href="#Deleting-Copying-Moving" class="headerlink" title="Deleting, Copying, &amp; Moving"></a>Deleting, Copying, &amp; Moving</h1><p>rm可以用来删除文件或者文件夹，操作如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">03  04  hello.txt  sayHi.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ rm hello.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">03  04  sayHi.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<p>如果我们需要喊出的是文件夹的话：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">03  04  sayHi.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ rm 03</span><br><span class="line">rm: cannot remove &#x27;03&#x27;: Is a directory</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ rm -rf 03</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">04  sayHi.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<p>如果我们需要大量的删除同一个类型的文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">04  sayHi.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ touch 1.txt 2.txt 3.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">04  1.txt  2.txt  3.txt  sayHi.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ rm *.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">04</span><br></pre></td></tr></table></figure>
+
+
+
+<p>可以发现所有的后缀为txt的文件都已经被删除了。</p>
+<p>我们可以使用mv来移动文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">04</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ touch 1.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ mv 1.txt 04</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">04</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ cd 04</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL/04$ ls</span><br><span class="line">1.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL/04$ mv 1.txt ./..</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL/04$ ls</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL/04$ cd ..</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">04  1.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<p>我们可以使用mv来完成改名的操作：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">04  1.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ mv 1.txt 2.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">04  2.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<p>我们可以使用cp来进行复制：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">04  2.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ cp 2.txt 2_cp.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">04  2.txt  2_cp.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<p>以及：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">04  2.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ cp 2.txt 2_cp.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">04  2.txt  2_cp.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ cp 2.txt ./04/2_04_cp.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">04  2.txt  2_cp.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ cd 04</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL/04$ ls</span><br><span class="line">2_04_cp.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL/04$ cd ..</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">04  2.txt  2_cp.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Shortcuts-History"><a href="#Shortcuts-History" class="headerlink" title="Shortcuts &amp; History"></a>Shortcuts &amp; History</h1><p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174500066.png" alt="image-20221222174500066">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222174500066.png)</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174510029.png" alt="image-20221222174510029">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222174510029.png)</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174521635.png" alt="image-20221222174521635">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222174521635.png)</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174528520.png" alt="image-20221222174528520">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222174528520.png)</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174534471.png" alt="image-20221222174534471">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222174534471.png)</p>
+<h1 id="Working-With-Files"><a href="#Working-With-Files" class="headerlink" title="Working With Files"></a>Working With Files</h1><p>less file会将file中的内容显示出来，一次显示一页的内容。</p>
+<p>对于特别大的文本，使用less会比只用cat来的更加的有用。</p>
+<p>例子：</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174553157.png" alt="image-20221222174553157">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222174553157.png)</p>
+<p>按f之后，进入到下一页：</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174603486.png" alt="image-20221222174603486">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222174603486.png)</p>
+<p>按b可以回到上一页：</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174650027.png" alt="image-20221222174650027">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222174650027.png)</p>
+<p>每按一次可以往下移动一行：</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174700400.png" alt="image-20221222174700400">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222174700400.png)</p>
+<p>如果我们为 cat 提供多个文件，它将连接它们的内容并输出它们。</p>
+<p>cat和tac的显示恰好相反：</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174710508.png" alt="image-20221222174710508">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222174710508.png)</p>
+<p>rev则是将内容左右调转：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">04  1.txt  2.txt  2_cp.txt  rev.txt  text.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ cat rev.txt</span><br><span class="line">12345679</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ rev rev.txt</span><br><span class="line">97654321</span><br></pre></td></tr></table></figure>
+
+
+
+<p>head和tail:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">04  1.txt  2.txt  2_cp.txt  rev.txt  text.txt  word.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ cat word.txt</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ head word.txt</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ head -11 word.txt</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ tail word.txt</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ tail -11 word.txt</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td></tr></table></figure>
+
+
+
+<p>wc是wordcount的缩写：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">04  1.txt  2.txt  2_cp.txt  rev.txt  text.txt  word.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ wc word.txt</span><br><span class="line">19 20 69 word.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ wc rev.txt</span><br><span class="line"> 1  1 10 rev.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ wc text.txt</span><br><span class="line"> 40  39 217 text.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Redirection"><a href="#Redirection" class="headerlink" title="Redirection"></a>Redirection</h1><p>standard input在command的作用之下会有两个可能的结果：</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174735619.png" alt="image-20221222174735619">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222174735619.png)</p>
+<p>redirection的逻辑为：</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174745929.png" alt="image-20221222174745929">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222174745929.png)</p>
+<p>重定向输出符号 (&gt;) 告诉 shell 将命令的输出重定向到特定文件而不是屏幕。</p>
+<p>以date为例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">redirection.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ date</span><br><span class="line">Mon Dec 19 22:56:50 ACDT 2022</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ date &gt; date.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">date.txt  redirection.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ cat date.txt</span><br><span class="line">Mon Dec 19 22:56:58 ACDT 2022</span><br></pre></td></tr></table></figure>
+
+
+
+<p>更多的例子：</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174756346.png" alt="image-20221222174756346">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222174756346.png)</p>
+<p>如果向同一个对象中redirection呢？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">date.txt  redirection.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ echo &quot;Hello&quot; &gt; test.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">date.txt  redirection.txt  test.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ cat test.txt</span><br><span class="line">Hello</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ echo &quot;World&quot; &gt; test.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">date.txt  redirection.txt  test.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ cat test.txt</span><br><span class="line">World</span><br></pre></td></tr></table></figure>
+
+
+
+<p>得到的结果如上所示。</p>
+<p>如果想要添加而不是覆盖：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ echo &quot;Hello&quot; &gt; test.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">date.txt  redirection.txt  test.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ cat test.txt</span><br><span class="line">Hello</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ echo &quot;World&quot; &gt;&gt; test.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">date.txt  redirection.txt  test.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ cat test.txt</span><br><span class="line">Hello</span><br><span class="line">World</span><br></pre></td></tr></table></figure>
+
+
+
+<p>可以发现&gt;会导致覆盖，而&gt;&gt;则是导致append。</p>
+<p>如果是redirection input，则如下图所示：</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174807948.png" alt="image-20221222174807948">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222174807948.png)</p>
+<p>组合如下图所示：</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174822732.png" alt="image-20221222174822732">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222174822732.png)</p>
+<p>重定向standard error：</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174834633.png" alt="image-20221222174834633">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222174834633.png)</p>
+<h1 id="piping"><a href="#piping" class="headerlink" title="piping"></a>piping</h1><p>pipes的作用在于将一个program的结果转给另一个program：</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174851621.png" alt="image-20221222174851621">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222174851621.png)</p>
+<p>使用 | 来进行pipes。</p>
+<p>例子如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">total 106244</span><br><span class="line">lrwxrwxrwx 1 root root           4 Feb 18  2020 NF -&gt; col1</span><br><span class="line">-rwxr-xr-x 1 root root      129568 Feb 17  2022 VGAuthService</span><br><span class="line">-rwxr-xr-x 1 root root       51632 Feb  8  2022 [</span><br><span class="line">-rwxr-xr-x 1 root root       35344 Mar 10  2022 aa-enabled</span><br><span class="line">-rwxr-xr-x 1 root root       35344 Mar 10  2022 aa-exec</span><br><span class="line">-rwxr-xr-x 1 root root       31248 Mar 10  2022 aa-features-abi</span><br><span class="line">-rwxr-xr-x 1 root root       14478 Apr 30  2022 add-apt-repository</span><br><span class="line">-rwxr-xr-x 1 root root       14712 Feb 21  2022 addpart</span><br><span class="line">lrwxrwxrwx 1 root root          26 Mar 12  2022 addr2line -&gt; x86_64-linux-gnu-addr2line</span><br><span class="line">-rwxr-xr-x 1 root root        2558 Oct 27  2021 apport-bug</span><br><span class="line">-rwxr-xr-x 1 root root       13367 May 10  2022 apport-cli</span><br><span class="line">lrwxrwxrwx 1 root root          10 May 10  2022 apport-collect -&gt; apport-bug</span><br><span class="line">-rwxr-xr-x 1 root root        2068 May 10  2022 apport-unpack</span><br><span class="line">lrwxrwxrwx 1 root root           6 Mar 18  2022 apropos -&gt; whatis</span><br><span class="line">-rwxr-xr-x 1 root root       18824 Apr  8  2022 apt</span><br><span class="line">lrwxrwxrwx 1 root root          18 Apr 30  2022 apt-add-repository -&gt; add-apt-repository</span><br><span class="line">-rwxr-xr-x 1 root root       84448 Apr  8  2022 apt-cache</span><br><span class="line">-rwxr-xr-x 1 root root       27104 Apr  8  2022 apt-cdrom</span><br><span class="line">-rwxr-xr-x 1 root root       27024 Apr  8  2022 apt-config</span><br><span class="line">-rwxr-xr-x 1 root root       23008 Apr  8  2022 apt-extracttemplates</span><br><span class="line">-rwxr-xr-x 1 root root      236008 Apr  8  2022 apt-ftparchive</span><br><span class="line">-rwxr-xr-x 1 root root       51680 Apr  8  2022 apt-get</span><br><span class="line">-rwxr-xr-x 1 root root       28173 Apr  8  2022 apt-key</span><br><span class="line">-rwxr-xr-x 1 root root       51680 Apr  8  2022 apt-mark</span><br><span class="line">-rwxr-xr-x 1 root root       39320 Apr  8  2022 apt-sortpkgs</span><br><span class="line">lrwxrwxrwx 1 root root          19 Mar 12  2022 ar -&gt; x86_64-linux-gnu-ar</span><br><span class="line">-rwxr-xr-x 1 root root       31232 Feb  8  2022 arch</span><br><span class="line">lrwxrwxrwx 1 root root          19 Mar 12  2022 as -&gt; x86_64-linux-gnu-as</span><br></pre></td></tr></table></figure>
+
+
+
+<p>另一个例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ date</span><br><span class="line">Wed Dec 21 13:12:11 ACDT 2022</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ date | rev</span><br><span class="line">2202 TDCA 41:21:31 12 ceD deW</span><br></pre></td></tr></table></figure>
+
+
+
+<p>另一个例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">date.txt  redirection.txt  test.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls | wc -l</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
+
+
+
+<p>以及：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">date.txt  redirection.txt  test.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ cat date.txt</span><br><span class="line">Mon Dec 19 22:56:58 ACDT 2022</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ tac date.txt | rev</span><br><span class="line">2202 TDCA 85:65:22 91 ceD noM</span><br></pre></td></tr></table></figure>
+
+
+
+<p>我们可以连续使用 | ：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">date.txt  pipes.txt  redirection.txt  test.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ cat pipes.txt</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ cat pipes.txt | head -15 | tail -5</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Expansion"><a href="#Expansion" class="headerlink" title="Expansion"></a>Expansion</h1><p>echo是一个非常简单的指令，能够将传输的内容打印出来：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ echo hello world</span><br><span class="line">hello world</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ echo &quot;hello world&quot;</span><br><span class="line">hello world</span><br></pre></td></tr></table></figure>
+
+
+
+<p>我们可以使用 * 来将所有的符合条件的文件都栓选出来：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line"> 1  &#x27;chicks - 副本 (2).txt&#x27;  &#x27;chicks - 副本 (3).txt&#x27;  &#x27;chicks - 副本.txt&#x27;   chicks.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls *.txt</span><br><span class="line">&#x27;chicks - 副本 (2).txt&#x27;  &#x27;chicks - 副本 (3).txt&#x27;  &#x27;chicks - 副本.txt&#x27;   chicks.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<p>?可以被理解为是一个任意符，一个?就是这几个位置上的内容随意：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line"> 1  &#x27;chicks - 副本 (2).txt&#x27;  &#x27;chicks - 副本 (3).txt&#x27;  &#x27;chicks - 副本.txt&#x27;   chicks.py   chicks.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls chicks.??</span><br><span class="line">chicks.py</span><br></pre></td></tr></table></figure>
+
+
+
+<p>我们可以使用[?~?]的方式来将符合的文件都选出来：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">1  1.txt  2.txt  3.txt  4.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls [1-9].txt</span><br><span class="line">1.txt  2.txt  3.txt  4.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174914976.png" alt="image-20221222174914976">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222174914976.png)</p>
+<p>同样的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">1  1.txt  2.txt  3.txt  4.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ touch &#123;1,2,3,4,5,6,7,8,9&#125;.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">1  1.txt  2.txt  3.txt  4.txt  5.txt  6.txt  7.txt  8.txt  9.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<p>以及：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">1  1.txt  2.txt  3.txt  4.txt  5.txt  6.txt  7.txt  8.txt  9.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ rm [^7]*.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">1  7.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174926831.png" alt="image-20221222174926831">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222174926831.png)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ echo &quot;Now is $(date)&quot;</span><br><span class="line">Now is Thu Dec 22 12:39:55 ACDT 2022</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ echo &quot;$5.00&quot;</span><br><span class="line">.00</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ echo &quot;\$5.00&quot;</span><br><span class="line">$5.00</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Finding"><a href="#Finding" class="headerlink" title="Finding"></a>Finding</h1><h2 id="locate"><a href="#locate" class="headerlink" title="locate"></a>locate</h2><p>使用locate可以找到所有匹配的文件的位置：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">1  chicks.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ cd 1</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL/1$ ls</span><br><span class="line">2  chicks.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL/1$ cd 2</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL/1/2$ ls</span><br><span class="line">chicks.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL/1/2$ cd ..</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL/1$ cd ..</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls</span><br><span class="line">1  chicks.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ locate chicks</span><br><span class="line">Command &#x27;locate&#x27; not found, but can be installed with:</span><br><span class="line">sudo apt install plocate</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ sudo apt install plocate</span><br><span class="line">[sudo] password for yejiu97:</span><br><span class="line">Reading package lists... Done</span><br><span class="line">Building dependency tree... Done</span><br><span class="line">Reading state information... Done</span><br><span class="line">The following package was automatically installed and is no longer required:</span><br><span class="line">  libfreetype6</span><br><span class="line">Use &#x27;sudo apt autoremove&#x27; to remove it.</span><br><span class="line">The following additional packages will be installed:</span><br><span class="line">  liburing2</span><br><span class="line">The following NEW packages will be installed:</span><br><span class="line">  liburing2 plocate</span><br><span class="line">0 upgraded, 2 newly installed, 0 to remove and 70 not upgraded.</span><br><span class="line">Need to get 140 kB of archives.</span><br><span class="line">After this operation, 555 kB of additional disk space will be used.</span><br><span class="line">Do you want to continue? [Y/n] y</span><br><span class="line">Get:1 http://archive.ubuntu.com/ubuntu jammy/main amd64 liburing2 amd64 2.1-2build1 [10.3 kB]</span><br><span class="line">Get:2 http://archive.ubuntu.com/ubuntu jammy/main amd64 plocate amd64 1.1.15-1ubuntu2 [129 kB]</span><br><span class="line">Fetched 140 kB in 2s (62.6 kB/s)</span><br><span class="line">Selecting previously unselected package liburing2:amd64.</span><br><span class="line">(Reading database ... 33883 files and directories currently installed.)</span><br><span class="line">Preparing to unpack .../liburing2_2.1-2build1_amd64.deb ...</span><br><span class="line">Unpacking liburing2:amd64 (2.1-2build1) ...</span><br><span class="line">Selecting previously unselected package plocate.</span><br><span class="line">Preparing to unpack .../plocate_1.1.15-1ubuntu2_amd64.deb ...</span><br><span class="line">Unpacking plocate (1.1.15-1ubuntu2) ...</span><br><span class="line">Setting up liburing2:amd64 (2.1-2build1) ...</span><br><span class="line">Setting up plocate (1.1.15-1ubuntu2) ...</span><br><span class="line">update-alternatives: using /usr/bin/plocate to provide /usr/bin/locate (locate) in auto mode</span><br><span class="line">Adding group `plocate&#x27; (GID 120) ...</span><br><span class="line">Done.</span><br><span class="line">Initializing plocate database; this may take some time... done</span><br><span class="line">Created symlink /etc/systemd/system/timers.target.wants/plocate-updatedb.timer → /lib/systemd/system/plocate-updatedb.timer.</span><br><span class="line">Processing triggers for man-db (2.10.2-1) ...</span><br><span class="line">Processing triggers for libc-bin (2.35-0ubuntu3) ...</span><br><span class="line">Scanning processes...</span><br><span class="line">Scanning candidates...</span><br><span class="line">Scanning processor microcode...</span><br><span class="line">Scanning linux images...</span><br><span class="line"></span><br><span class="line">Failed to retrieve available kernel versions.</span><br><span class="line"></span><br><span class="line">Failed to check for processor microcode upgrades.</span><br><span class="line"></span><br><span class="line">No services need to be restarted.</span><br><span class="line"></span><br><span class="line">No containers need to be restarted.</span><br><span class="line"></span><br><span class="line">User sessions running outdated binaries:</span><br><span class="line"> root @ /dev/pts/0: apt[36,138], sh[143]</span><br><span class="line"> root @ /dev/tty1: init[8]</span><br><span class="line"> yejiu97 @ /dev/tty1: bash[9]</span><br><span class="line"></span><br><span class="line">No VM guests are running outdated hypervisor (qemu) binaries on this host.</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ locate chicks</span><br><span class="line">/mnt/c/Users/yinia/AppData/Roaming/Microsoft/Windows/Recent/chicks.txt.lnk</span><br><span class="line">/mnt/c/Users/yinia/Desktop/WSL/chicks.txt</span><br><span class="line">/mnt/c/Users/yinia/Desktop/WSL/1/chicks.txt</span><br><span class="line">/mnt/c/Users/yinia/Desktop/WSL/1/2/chicks.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$</span><br></pre></td></tr></table></figure>
+
+
+
+<p>locate可以提供参数：</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222174959179.png" alt="image-20221222174959179">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222174959179.png)</p>
+<h2 id="find"><a href="#find" class="headerlink" title="find"></a>find</h2><p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175011091.png" alt="image-20221222175011091">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222175011091.png)</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175018073.png" alt="image-20221222175018073">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222175018073.png)</p>
+<h2 id="counting-results"><a href="#counting-results" class="headerlink" title="counting results"></a>counting results</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ find -name &quot;*.txt&quot; | wc -l</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="finding-by"><a href="#finding-by" class="headerlink" title="finding by"></a>finding by</h2><p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175029405.png" alt="image-20221222175029405">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222175029405.png)</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175035541.png" alt="image-20221222175035541">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222175035541.png)</p>
+<h1 id="Grep"><a href="#Grep" class="headerlink" title="Grep"></a>Grep</h1><p>grep 命令在每个文件的内容中搜索模式。 Grep 将打印与我们提供的模式匹配的每一行。</p>
+<p>grep “chicken” animals.txt 将打印 animals.txt 文件中包含模式 “chicken” 的每一行：</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175055084.png" alt="image-20221222175055084">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222175055084.png)</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175102961.png" alt="image-20221222175102961">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222175102961.png)</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175111328.png" alt="image-20221222175111328">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222175111328.png)</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175120664.png" alt="image-20221222175120664">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222175120664.png)</p>
+<h1 id="Permissions-Basics"><a href="#Permissions-Basics" class="headerlink" title="Permissions Basics"></a>Permissions Basics</h1><p>Unix and unix-like systems are multiuser operating systems.</p>
+<p>例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ cat /etc/sudoers</span><br><span class="line">cat: /etc/sudoers: Permission denied</span><br></pre></td></tr></table></figure>
+
+
+
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175138219.png" alt="image-20221222175138219">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222175138219.png)</p>
+<p>查看自己的id：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ id</span><br><span class="line">uid=1000(yejiu97) gid=1000(yejiu97) groups=1000(yejiu97),4(adm),20(dialout),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),118(netdev)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>我们可以看这样的一个例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ echo &quot;hi&quot; &gt; greet.txt</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ ls -l greet.txt</span><br><span class="line">-rwxrwxrwx 1 yejiu97 yejiu97 3 Dec 22 12:55 greet.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175151634.png" alt="image-20221222175151634">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222175151634.png)</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175159562.png" alt="image-20221222175159562">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222175159562.png)</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175207039.png" alt="image-20221222175207039">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222175207039.png)</p>
+<h1 id="更改权限"><a href="#更改权限" class="headerlink" title="更改权限"></a>更改权限</h1><h2 id="文件权限"><a href="#文件权限" class="headerlink" title="文件权限"></a>文件权限</h2><p>要更改文件或目录的权限，我们可以使用 chmod 命令（更改模式）。</p>
+<p>要使用 chmod 更改权限，我们需要告诉它：</p>
+<ul>
+<li>我们正在为谁更改权限</li>
+<li>我们正在做出什么改变？ 添加？ 删除？</li>
+<li>我们正在设置哪些权限？</li>
+</ul>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175226460.png" alt="image-20221222175226460">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222175226460.png)</p>
+<p>在使用 chmod 指定权限时，我们使用特殊的语法来编写权限语句。</p>
+<p>首先要确认的是是谁：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">u - 用户（文件的所有者）</span><br><span class="line">g - 组（文件所属组的成员</span><br><span class="line">o - 其他（“世界”）</span><br><span class="line">a - 以上所有</span><br></pre></td></tr></table></figure>
+
+
+
+<p>接着要确认的是做什么：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-（减号）删除权限</span><br><span class="line">+（加号）授予权限</span><br><span class="line">=（等号）设置权限并删除其他权限</span><br></pre></td></tr></table></figure>
+
+
+
+<p>最后要确认的是哪个值：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">r - 读取权限</span><br><span class="line">w - 写权限</span><br><span class="line">x - 执行权限</span><br></pre></td></tr></table></figure>
+
+
+
+<p>这是一个例子：</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175250157.png" alt="image-20221222175250157">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222175250157.png)</p>
+<p>这是另一个例子：</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175302273.png" alt="image-20221222175302273">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222175302273.png)</p>
+<p>以及：</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175316225.png" alt="image-20221222175316225">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222175316225.png)</p>
+<p>还有：</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175326053.png" alt="image-20221222175326053">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222175326053.png)</p>
+<h2 id="改变身份"><a href="#改变身份" class="headerlink" title="改变身份"></a>改变身份</h2><p>有时我们可能想从我们自己的 shell 会话中以另一个用户的身份启动 shell。</p>
+<p>我们可以使用 su 命令来做到这一点。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例如，su - hermione 将为用户 hermione 创建一个新的登录 shell。</span><br></pre></td></tr></table></figure>
+
+
+
+<p>我们需要输入赫敏的密码。 要离开会话，请键入 exit。</p>
+<p>在Linux系统中，有一个超级用户叫做root。 root 用户可以运行任何命令并访问机器上的任何文件，无论文件的实际所有者如何。 root 用户拥有巨大的权力，很容易通过运行错误的命令来破坏甚至破坏系统！ 为此，Ubuntu 默认锁定了 root 用户。</p>
+<p>使用sudo -l来进行查看：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/mnt/c/Users/yinia/Desktop/WSL$ sudo -l</span><br><span class="line">Matching Defaults entries for yejiu97 on DESKTOP-S9ODFEQ:</span><br><span class="line">    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin,</span><br><span class="line">    use_pty</span><br><span class="line"></span><br><span class="line">User yejiu97 may run the following commands on DESKTOP-S9ODFEQ:</span><br><span class="line">    (ALL : ALL) ALL</span><br></pre></td></tr></table></figure>
+
+
+
+<p>sudo既是将接下来的指令按照root权限来进行运行。</p>
+<p>chown可以将特定的文件或者文件夹的owner或者group修改掉：</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175337828.png" alt="image-20221222175337828">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222175337828.png)</p>
+<h1 id="写一个自己的command"><a href="#写一个自己的command" class="headerlink" title="写一个自己的command"></a>写一个自己的command</h1><p>首先需要进入到bin文件夹中：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">yejiu97@DESKTOP-S9ODFEQ:/$ ls</span><br><span class="line">bin   dev  home  lib    lib64   media  opt   root  sbin  srv  tmp  var</span><br><span class="line">boot  etc  init  lib32  libx32  mnt    proc  run   snap  sys  usr</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/$ cd usr</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/usr$ ls</span><br><span class="line">bin  games  include  lib  lib32  lib64  libexec  libx32  local  sbin  share  src</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/usr$ cd local</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/usr/local$ ls</span><br><span class="line">bin  etc  games  include  lib  man  sbin  share  src</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/usr/local$ ls</span><br><span class="line">bin  etc  games  include  lib  man  sbin  share  src</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/usr/local$ cd bin</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/usr/local/bin$ ls</span><br><span class="line">yejiu97@DESKTOP-S9ODFEQ:/usr/local/bin$</span><br></pre></td></tr></table></figure>
+
+
+
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175355762.png" alt="image-20221222175355762">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222175355762.png)</p>
+<h1 id="虚拟机安装"><a href="#虚拟机安装" class="headerlink" title="虚拟机安装"></a>虚拟机安装</h1><p>访问网站：</p>
+<p><a target="_blank" rel="noopener" href="https://www.virtualbox.org/">Oracle VM VirtualBox</a></p>
+<p>在右侧找到download：</p>
+<p><a target="_blank" rel="noopener" href="https://www.virtualbox.org/wiki/Downloads">Downloads - Oracle VM VirtualBox</a></p>
+<p>将对应的内容下载下来：</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175417833.png" alt="image-20221222175417833">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222175417833.png)</p>
+<p>接着访问：</p>
+<p><a target="_blank" rel="noopener" href="https://ubuntu.com/">Enterprise Open Source and Linux | Ubuntu</a></p>
+<p>然后进行下载：</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175432490.png" alt="image-20221222175432490">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222175432490.png)</p>
+<p>然后将其导入：</p>
+<p>[<img src="/Linux%E7%9F%A5%E8%AF%86%E7%82%B9/image-20221222175445454.png" alt="image-20221222175445454">](<a target="_blank" rel="noopener" href="https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19">https://github.com/YeJiu97/linux-learning-notes/blob/main/01-LinuxCommandNotes/19</a> - 汇总&#x2F;Linux知识点汇总&#x2F;image-20221222175445454.png)</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/linux-command/" rel="tag"># linux command</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2023/05/29/%E6%96%AD%E5%A2%A8%E5%AF%BB%E5%BE%84-%E7%AC%94%E8%AE%B0/" rel="next" title="断墨寻径-笔记">
+                <i class="fa fa-chevron-left"></i> 断墨寻径-笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2025/05/11/%E6%B5%8B%E8%AF%95%E4%B8%80%E4%B8%8B/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Command-Basics"><span class="nav-number">2.</span> <span class="nav-text">Command Basics</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Open-Terminal"><span class="nav-number">2.1.</span> <span class="nav-text">Open Terminal</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Some-Commands"><span class="nav-number">2.2.</span> <span class="nav-text">Some Commands</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Command-Structure"><span class="nav-number">2.3.</span> <span class="nav-text">Command Structure</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Getting-Help"><span class="nav-number">3.</span> <span class="nav-text">Getting Help</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Get-Help"><span class="nav-number">3.1.</span> <span class="nav-text">Get Help</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#type-%E5%92%8C-which"><span class="nav-number">3.2.</span> <span class="nav-text">type 和 which</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#help%E6%8C%87%E4%BB%A4"><span class="nav-number">3.3.</span> <span class="nav-text">help指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-number">3.4.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Navigation"><span class="nav-number">4.</span> <span class="nav-text">Navigation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cd"><span class="nav-number">4.1.</span> <span class="nav-text">cd</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Creating-files-folders"><span class="nav-number">5.</span> <span class="nav-text">Creating files &amp; folders</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#touch-%E5%92%8C-mkdir"><span class="nav-number">5.1.</span> <span class="nav-text">touch 和 mkdir</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#file%E6%8C%87%E4%BB%A4"><span class="nav-number">5.2.</span> <span class="nav-text">file指令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Nano"><span class="nav-number">6.</span> <span class="nav-text">Nano</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Deleting-Copying-Moving"><span class="nav-number">7.</span> <span class="nav-text">Deleting, Copying, &amp; Moving</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Shortcuts-History"><span class="nav-number">8.</span> <span class="nav-text">Shortcuts &amp; History</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Working-With-Files"><span class="nav-number">9.</span> <span class="nav-text">Working With Files</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redirection"><span class="nav-number">10.</span> <span class="nav-text">Redirection</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#piping"><span class="nav-number">11.</span> <span class="nav-text">piping</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Expansion"><span class="nav-number">12.</span> <span class="nav-text">Expansion</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Finding"><span class="nav-number">13.</span> <span class="nav-text">Finding</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#locate"><span class="nav-number">13.1.</span> <span class="nav-text">locate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#find"><span class="nav-number">13.2.</span> <span class="nav-text">find</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#counting-results"><span class="nav-number">13.3.</span> <span class="nav-text">counting results</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#finding-by"><span class="nav-number">13.4.</span> <span class="nav-text">finding by</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Grep"><span class="nav-number">14.</span> <span class="nav-text">Grep</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Permissions-Basics"><span class="nav-number">15.</span> <span class="nav-text">Permissions Basics</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9%E6%9D%83%E9%99%90"><span class="nav-number">16.</span> <span class="nav-text">更改权限</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90"><span class="nav-number">16.1.</span> <span class="nav-text">文件权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%94%B9%E5%8F%98%E8%BA%AB%E4%BB%BD"><span class="nav-number">16.2.</span> <span class="nav-text">改变身份</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%99%E4%B8%80%E4%B8%AA%E8%87%AA%E5%B7%B1%E7%9A%84command"><span class="nav-number">17.</span> <span class="nav-text">写一个自己的command</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85"><span class="nav-number">18.</span> <span class="nav-text">虚拟机安装</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
